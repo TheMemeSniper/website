@@ -14,7 +14,7 @@
       content="https://thememesniper.dev/images/icons/icon.png"
       property="og:image"
     />
-    <meta content="#F5A9B8" data-react-helmet="true" name="theme-color" />
+    <meta content="#F5A9B8" name="theme-color" />
     <link rel="icon" type="image/png" href="/images/icons/icon.png" />
     <link rel="stylesheet" href="style/global.css" />
     <title>k8's corner</title>
@@ -24,15 +24,12 @@
     <h3>programmer, linux user, nutjob.</h3>
     <img
       class="center pfp"
-      style="
-        .circular--square {
-          border-radius: 50%;
-        }
-      "
       id="pfp"
       src="images/missing.webp"
       alt="my profile picture. it's whatever i have it set to on mastodon or just a missing texture if you have noscript on"
     />
+    <!-- Elements with IDs become global variables -->
+    <script>fetch("https://wetdry.world/api/v1/accounts/109768514398335264").then(res => res.json()).then(json => pfp.src = json.avatar_static)</script>
     <h3 id="quote"></h3>
     <noscript>
       <h3>"My boy! No JS is what all true warriors strive for."</h3>
@@ -109,25 +106,25 @@
       <a href="https://thememesniper.dev" target="_blank">
         <img
           src="/images/88x31.png"
-          alt="k8's corner in comic sans on a candystripe trans background with a cat on the right"
+          alt="k8's corner"
         />
       </a>
       <a href="https://coolelectronics.me" target="_blank">
         <img
           src="https://coolelectronics.me/ce88x31.png"
-          alt="lamplighter from oneshot with text that says velzie and a magenta splash"
+          alt="velzie"
         />
       </a>
       <a href="https://micro.pages.gay" target="_blank">
         <img
           src="https://git.gay/Micro/pages/raw/branch/main/src/assets/images/standard/niko%C2%B9.png"
-          alt="prototype from oneshot with a joyous expression and the text Micro to the right"
+          alt="Micro"
         />
       </a>
       <a href="https://jack.cab" target="_blank">
         <img
           src="/images/buttons/jack.png"
-          alt="text jack.cab below an icon of a compressed file"
+          alt="Jack.cab"
         />
       </a>
       <a
@@ -136,30 +133,17 @@
       >
         <img
           src="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/people/760ceb3b9c0ba4872cadf3ce35a7a494.png"
-          alt="neco arc next to a hash of some sort"
+          alt="760ceb3b9c0ba4872cadf3ce35a7a494's website"
         />
       </a>
       <a href="https://split.pet/" target="_blank">
-        <img src="/images/buttons/split.png" alt="hi, i'm split" />
+        <img src="/images/buttons/split.png" alt="split's website" />
       </a>
     </div>
     <p>
       if we're mutuals on fedi ask me to add your button/testimony here! also
       tell me if you want your button image hotlinked or not
     </p>
-    <script>
-      const xhttp = new XMLHttpRequest();
-      xhttp.onload = function () {
-        json = JSON.parse(this.responseText);
-        document.getElementById("pfp").src = json.avatar_static;
-      };
-      xhttp.open(
-        "GET",
-        "https://wetdry.world/api/v1/accounts/109768514398335264",
-        true
-      );
-      xhttp.send();
-    </script>
     <script src="scripts/quotes.js"></script>
 
     <p aria-hidden="true" style="opacity: 0">
