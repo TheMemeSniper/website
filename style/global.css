@@ -65,3 +65,17 @@ a:visited {
   width: 15%;
   height: 25%;
 }
+
+button {
+  /* css is fucking stupid i shouldn't have to redeclare this shit for every button on the page */
+  background-color: #303446;
+  color: #c6d0f5;
+}
+
+button:active {
+  background-color: #626880;
+}
+
+button:hover {
+  background-color: #414559;
+}

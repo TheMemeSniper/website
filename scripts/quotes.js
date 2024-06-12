@@ -10,6 +10,18 @@ quotedb = [
   "lmk if the damn css sucks",
   "ERROR: Failed to mount the real root device. Bailing out, you are on your own.  Good luck.",
   "-- [ end Kernel panic - not syncing: Attempted to take 30%!",
+  "Baka mitowers",
+  "Z AXIS IS A FUCK",
+  "there's nothing happening",
+  "out of the ordinary i mean",
+  "And the name of the new console is Wii U!",
+  "I got food poisoned,,, That made me angry",
+  `https://files.thememesniper.dev/sweeney.zip`,
 ];
-const chosen = quotedb[Math.floor(Math.random() * quotedb.length)];
+var chosen = quotedb[Math.floor(Math.random() * quotedb.length)];
 document.getElementById("quote").textContent = `"${chosen}"`;
+
+function quoteReroll() {
+  var chosen = quotedb[Math.floor(Math.random() * quotedb.length)];
+  document.getElementById("quote").textContent = `"${chosen}"`;
+}
