@@ -1,3 +1,3 @@
 # gay website for gay person
 
-billions must write without js
+billions must write without frameworks
