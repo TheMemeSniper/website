@@ -28,6 +28,8 @@
       src="images/missing.webp"
       alt="my profile picture. it's whatever i have it set to on mastodon or just a missing texture if you have noscript on"
     />
+    <!-- Elements with IDs become global variables -->
+    <script>fetch("https://wetdry.world/api/v1/accounts/109768514398335264").then(res => res.json()).then(json => pfp.src = json.avatar_static)</script>
     <h3 id="quote"></h3>
     <noscript>
       <h3>"My boy! No JS is what all true warriors strive for."</h3>
@@ -142,19 +144,6 @@
       if we're mutuals on fedi ask me to add your button/testimony here! also
       tell me if you want your button image hotlinked or not
     </p>
-    <script>
-      const xhttp = new XMLHttpRequest();
-      xhttp.onload = function () {
-        json = JSON.parse(this.responseText);
-        document.getElementById("pfp").src = json.avatar_static;
-      };
-      xhttp.open(
-        "GET",
-        "https://wetdry.world/api/v1/accounts/109768514398335264",
-        true
-      );
-      xhttp.send();
-    </script>
     <script src="scripts/quotes.js"></script>
 
     <p aria-hidden="true" style="opacity: 0">
