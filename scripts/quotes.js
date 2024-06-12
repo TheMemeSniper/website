@@ -16,7 +16,9 @@ quotedb = [
   "out of the ordinary i mean",
   "And the name of the new console is Wii U!",
   "I got food poisoned,,, That made me angry",
-  `https://files.thememesniper.dev/sweeney.zip`,
+  "https://files.thememesniper.dev/sweeney.zip",
+  "why the slop is a homebrew BEAST",
+  ""
 ];
 var chosen = quotedb[Math.floor(Math.random() * quotedb.length)];
 document.getElementById("quote").textContent = `"${chosen}"`;
