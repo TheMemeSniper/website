@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "Atkinson Hyperlegible";
+    src: url(/fonts/Atkinson-Hyperlegible-Regular.woff2) format("woff2");
+}
+body {
+    font-family: "Atkinson Hyperlegible";
+    background-color: #303446;
+    color: #c6d0f5;
+    text-align:center;
+ }
+
+ a:link { color: #c6d0f5 }
+ a:visited {color:#c6d0f5}
+ 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.pfp { 
+    border-top-left-radius: 50% 50%; 
+    border-top-right-radius: 50% 50%; 
+    border-bottom-right-radius: 50% 50%; 
+    border-bottom-left-radius: 50% 50%; 
+    max-height: 25%;
+    max-width: 25%;
+}
+
+.testimonials {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card {
+    border-radius: 25px;
+    border: 2px solid	#292c3c;
+    padding: 20px;
+    width: 15%;
+    height: 25%;
+}
