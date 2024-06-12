@@ -30,9 +30,28 @@ body {
 
 .testimonials {
     display: flex;
+    flex-wrap: wrap;
+    overflow-y: visible;
     gap: 1%;
     margin-left: 10%;
     margin-right: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimony {
+    display:flex;
+    flex-wrap: wrap;
+    border-radius: 25px;
+    border: 2px solid	#292c3c;
+    padding: 20px;
+    width: auto;
+    height: auto;
+    min-height: 25%;
+    min-width: 15%;
+    max-width: 50%;
+    align-items: center;
+    flex-direction: column;
 }
 
 .card {
