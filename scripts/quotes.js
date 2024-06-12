@@ -7,7 +7,9 @@ quotedb = [
     "I hit the juckport 17 old computers",
     "All Chromebooks post-2015 contain an enrollment chip.",
     "The enrollment chip is a large chip under a thermal pad",
-    "lmk if the damn css sucks"
+    "lmk if the damn css sucks",
+    "ERROR: Failed to mount the real root device. Bailing out, you are on your own.  Good luck.",
+    "-- [ end Kernel panic - not syncing: Attempted to take 30%!"
 ]
 const chosen = quotedb[Math.floor(Math.random() * quotedb.length)];
 document.getElementById("quote").textContent = `"${chosen}"`;

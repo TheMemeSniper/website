@@ -30,6 +30,7 @@ body {
 
 .testimonials {
     display: flex;
+    gap: 1%;
     margin-left: 10%;
     margin-right: 10%;
 }
