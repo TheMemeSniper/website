@@ -77,3 +77,36 @@ button:active {
 button:hover {
   background-color: #414559;
 }
+
+.navbar {
+  border-radius: 5px;
+  border: 2px solid #292c3c;
+  text-align: left;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1%;
+}
+
+.navbar li {
+  display: inline;
+}
+
+.navbar img {
+  height:2em;
+}
+
+.navbar-item-current {
+  font-weight: bold;
+}
+
+.corner-image {
+  fill: #292c3c;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+}
