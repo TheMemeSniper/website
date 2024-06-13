@@ -102,11 +102,6 @@ button:hover {
   font-weight: bold;
 }
 
-.corner-image {
-  fill: #292c3c;
-  height: 50%;
-  width: 50%;
-  position: absolute;
-  bottom: -50px;
-  right: -50px;
+.look-at-me {
+  fill: #fff000;
 }
