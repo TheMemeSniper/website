@@ -29,7 +29,11 @@
       alt="my profile picture. it's whatever i have it set to on mastodon or just a missing texture if you have noscript on"
     />
     <!-- Elements with IDs become global variables -->
-    <script>fetch("https://wetdry.world/api/v1/accounts/109768514398335264").then(res => res.json()).then(json => pfp.src = json.avatar_static)</script>
+    <script>
+      fetch("https://wetdry.world/api/v1/accounts/109768514398335264")
+        .then((res) => res.json())
+        .then((json) => (pfp.src = json.avatar_static));
+    </script>
     <h3 id="quote"></h3>
     <noscript>
       <h3>"My boy! No JS is what all true warriors strive for."</h3>
@@ -78,7 +82,7 @@
         <p>
           -micro...
           <img
-            src="images/peggle2.gif"
+            src="images/peggle2.webp"
             alt="very, very small gif of the peggle 2 guy"
           />
         </p>
@@ -110,7 +114,7 @@
           decoding="async"
           height="31"
           width="88"
-          style="image-rendering:pixelated"
+          style="image-rendering: pixelated"
         />
       </a>
       <a href="https://coolelectronics.me" target="_blank">
@@ -120,7 +124,7 @@
           decoding="async"
           height="31"
           width="88"
-          style="image-rendering:pixelated"
+          style="image-rendering: pixelated"
         />
       </a>
       <a href="https://micro.pages.gay" target="_blank">
@@ -130,7 +134,7 @@
           decoding="async"
           height="31"
           width="88"
-          style="image-rendering:pixelated"
+          style="image-rendering: pixelated"
         />
       </a>
       <a href="https://jack.cab" target="_blank">
@@ -140,7 +144,7 @@
           decoding="async"
           height="31"
           width="88"
-          style="image-rendering:pixelated"
+          style="image-rendering: pixelated"
         />
       </a>
       <a
@@ -153,13 +157,18 @@
           decoding="async"
           height="31"
           width="88"
-          style="image-rendering:pixelated"
+          style="image-rendering: pixelated"
         />
       </a>
-      <a href="https://split.pet/" target="_blank" >
-        <img src="/images/buttons/split.png" alt="split's website" decoding="async"
+      <a href="https://split.pet/" target="_blank">
+        <img
+          src="/images/buttons/split.png"
+          alt="split's website"
+          decoding="async"
           height="31"
-          width="88" style="image-rendering:pixelated"/>
+          width="88"
+          style="image-rendering: pixelated"
+        />
       </a>
     </div>
     <p>
