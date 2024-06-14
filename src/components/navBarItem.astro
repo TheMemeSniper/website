@@ -1,0 +1,13 @@
+---
+const isActive = Astro.url.pathname == Astro.props.path
+interface Props {
+	page: string
+	path: string
+}
+---
+
+<li>
+	<a href={Astro.props.path} class:list={{ "navbar-item-current": isActive }}
+		>{Astro.props.page}</a
+	>
+</li>

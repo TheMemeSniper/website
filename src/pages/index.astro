@@ -6,7 +6,7 @@ import peggle2 from "../images/peggle2.webp?url"
 import jack from "../images/buttons/jack.png?url"
 const { avatar_static } = await fetch(
 	"https://wetdry.world/api/v1/accounts/109768514398335264"
-).then(res => res.json())
+).then((res) => res.json())
 ---
 
 <Layout title="k8's corner" description="Good lordd what is happenin in ther">
@@ -28,8 +28,12 @@ const { avatar_static } = await fetch(
 	</div>
 	<br />
 	<div aria-label="links">
-		<a href="https://wetdry.world/@thememesniper" rel="me" class="card">Mastodon</a>
-		<a href="https://github.com/TheMemeSniper/website" rel="me" class="card">Source?</a>
+		<a href="https://wetdry.world/@thememesniper" rel="me" class="card"
+			>Mastodon</a
+		>
+		<a href="https://github.com/TheMemeSniper/website" rel="me" class="card"
+			>Source?</a
+		>
 	</div>
 	<br />
 	<h1>testimonials</h1>
@@ -66,8 +70,9 @@ const { avatar_static } = await fetch(
 		</div>
 		<div class="testimony">
 			<h4>
-				thememesniper has helped my team and I stay on the same page. Previously, we were
-				all over the board. Using thememesniper has definitely saved us time and money.
+				thememesniper has helped my team and I stay on the same page.
+				Previously, we were all over the board. Using thememesniper has
+				definitely saved us time and money.
 			</h4>
 			<p>-millions wetdry</p>
 		</div>
@@ -81,7 +86,8 @@ const { avatar_static } = await fetch(
         justify-content: center;
         gap: 1ch;
         flex-wrap: wrap;
-      ">
+      "
+	>
 		<a href="https://thememesniper.dev" target="_blank">
 			<!-- 88x31 is in /public in case of hotlinking attempts -->
 			<img
@@ -123,7 +129,10 @@ const { avatar_static } = await fetch(
 				style="image-rendering: pixelated"
 			/>
 		</a>
-		<a href="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/" target="_blank">
+		<a
+			href="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/"
+			target="_blank"
+		>
 			<img
 				src="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/people/760ceb3b9c0ba4872cadf3ce35a7a494.png"
 				alt="760ceb3b9c0ba4872cadf3ce35a7a494's website"
@@ -145,8 +154,8 @@ const { avatar_static } = await fetch(
 		</a>
 	</div>
 	<p>
-		if we're mutuals on fedi ask me to add your button/testimony here! also tell me if you want
-		your button image hotlinked or not
+		if we're mutuals on fedi ask me to add your button/testimony here! also tell
+		me if you want your button image hotlinked or not
 	</p>
 	<script src="../quotes.js"></script>
 </Layout>
