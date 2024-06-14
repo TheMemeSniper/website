@@ -1,0 +1,79 @@
+@font-face {
+	font-family: "Atkinson Hyperlegible";
+	src: url(./fonts/Atkinson-Hyperlegible-Regular.woff2) format("woff2");
+}
+body {
+	font-family: "Atkinson Hyperlegible";
+	background-color: #303446;
+	color: #c6d0f5;
+	text-align: center;
+}
+
+a:link {
+	color: #c6d0f5;
+}
+a:visited {
+	color: #c6d0f5;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+.pfp {
+	border-radius: 50%;
+	max-width: 400px;
+	aspect-ratio: 1 / 1;
+}
+
+.testimonials {
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: visible;
+	gap: 1%;
+	margin-left: 10%;
+	margin-right: 10%;
+	align-items: center;
+	justify-content: center;
+}
+
+.testimony {
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 25px;
+	border: 2px solid #292c3c;
+	padding: 20px;
+	width: auto;
+	height: auto;
+	min-height: 25%;
+	min-width: 15%;
+	max-width: 50%;
+	align-items: center;
+	flex-direction: column;
+}
+
+.card {
+	border-radius: 25px;
+	border: 2px solid #292c3c;
+	padding: 20px;
+	width: 15%;
+	height: 25%;
+}
+
+button {
+	/* css is fucking stupid i shouldn't have to redeclare this shit for every button on the page */
+	background-color: #303446;
+	color: #c6d0f5;
+	width: fit-content !important;
+}
+
+button:active {
+	background-color: #626880;
+}
+
+button:hover {
+	background-color: #414559;
+}
