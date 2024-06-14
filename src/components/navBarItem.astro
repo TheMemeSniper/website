@@ -7,7 +7,7 @@ interface Props {
 ---
 
 <li>
-	<a href={Astro.props.path} aria-current={isActive ? true : false}
+	<a href={Astro.props.path} aria-current={isActive ? "page" : undefined}
 		>{Astro.props.page}</a
 	>
 </li>
