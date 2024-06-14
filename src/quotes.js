@@ -18,6 +18,8 @@ const quotes = [
   "I got food poisoned,,, That made me angry",
   "https://files.thememesniper.dev/sweeney.zip",
   "why the slop is a homebrew BEAST",
+  "TheWoods.cs",
+  "PaulMcCartney1994 world's best murder mystery 2 player"
 ]
 
 function quoteReroll() {
