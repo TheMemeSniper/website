@@ -22,7 +22,7 @@ interface Props {
 		<title>{Astro.props.title}</title>
 		<meta content={Astro.props.title} property="og:title" />
 		<meta content={Astro.props.description} property="og:description" />
-		<meta content="https://thememesniper.dev/" property="og:url" />
+		<meta property="og:url" content={Astro.url} />
 		<meta content={icon.src} property="og:image" />
 		<meta content="#F5A9B8" name="theme-color" />
 		<link rel="icon" href={favicon.src} />
