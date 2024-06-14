@@ -7,7 +7,7 @@ interface Props {
 ---
 
 <li>
-	<a href={Astro.props.path} class:list={{ "navbar-item-current": isActive }}
+	<a href={Astro.props.path} aria-current={isActive ? true : false}
 		>{Astro.props.page}</a
 	>
 </li>

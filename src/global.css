@@ -88,16 +88,16 @@ button:hover {
 	display: flex;
 	align-items: center;
 	gap: 1%;
-  }
-  
-  .navbar li {
+}
+
+.navbar li {
 	display: inline;
-  }
-  
-  .navbar img {
-	height:2em;
-  }
-  
-  .navbar-item-current {
+}
+
+.navbar img {
+	height: 2em;
+}
+
+[aria-current]:not([aria-current="false"]) {
 	font-weight: bold;
-  }
+}
