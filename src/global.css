@@ -33,7 +33,7 @@ a:visited {
 	display: flex;
 	flex-wrap: wrap;
 	overflow-y: visible;
-	gap: 1%;
+	gap: 10px;
 	margin-left: 10%;
 	margin-right: 10%;
 	align-items: center;
@@ -55,12 +55,19 @@ a:visited {
 	flex-direction: column;
 }
 
-.card {
+.card, .card > a {
 	border-radius: 25px;
 	border: 2px solid #292c3c;
+}
+
+.card {
 	padding: 20px;
-	width: 15%;
-	height: 25%;
+	width: 200px;
+	height: auto;
+}
+
+.card > a {
+	padding: 10px;
 }
 
 button {
