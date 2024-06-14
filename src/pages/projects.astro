@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro"
+import ProjectCard from "../components/projectCard.astro"
+---
+
+<Layout
+	title="k8's corner - projects"
+	description="all the stuff i've worked on"
+>
+	<h1>individual projects</h1>
+	<div class="testimonials">
+		<ProjectCard
+			name="quartz"
+			description="a simple interface to mineflayer for minecraft automation"
+			homepage="https://github.com/TheMemeSniper/quartz"
+		/>
+		<ProjectCard
+			name="Hyprqueer"
+			description="python script to set gay window borders for Hyprland"
+			homepage="https://github.com/TheMemeSniper/Hyprqueer"
+		/>
+	</div>
+
+	<h1>mercury workshop projects</h1>
+	<div class="testimonials">
+		<ProjectCard
+			name="anuraOS"
+			description="webOS with an x86 emulator and friendly developer APIs"
+			homepage="https://github.com/MercuryWorkshop/anuraOS"
+		/>
+		<ProjectCard
+			name="sh1mmer"
+			description="chromebook exploit for running unverified code in the recoveryenvironment"
+			homepage="https://github.com/MercuryWorkshop/sh1mmer"
+		/>
+	</div>
+
+	<h1>other contributions</h1>
+	<div class="testimonials">
+		<ProjectCard
+			name="moshidon"
+			description="beautiful material you app for the fediverse"
+			homepage="https://github.com/LucasGGamerM/moshidon"
+		/>
+	</div>
+</Layout>

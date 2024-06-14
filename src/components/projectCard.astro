@@ -1,0 +1,14 @@
+---
+interface Props {
+    name: string
+    description: string
+    homepage: string
+}
+---
+
+<div class="card">
+    <h4>{Astro.props.name}</h4>
+    <p>{Astro.props.description}</p>
+    <br />
+    <a href={Astro.props.homepage} class="card">homepage</a>
+</div>
