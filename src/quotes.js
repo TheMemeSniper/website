@@ -25,4 +25,5 @@ function quoteReroll() {
   document.getElementById("quote").textContent = `"${chosen}"`
 }
 
+window.quoteReroll = quoteReroll
 quoteReroll()
