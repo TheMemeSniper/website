@@ -132,3 +132,11 @@ button:hover {
 [aria-current]:not([aria-current="false"]) {
 	font-weight: bold;
 }
+
+h3, p {
+	color: #a5adce;
+}
+
+#quote {
+	color: #c6d0f5
+}
