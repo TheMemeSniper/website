@@ -2,6 +2,7 @@
 	font-family: "Atkinson Hyperlegible";
 	src: url(./fonts/Atkinson-Hyperlegible-Regular.woff2) format("woff2");
 }
+
 body {
 	font-family: "Atkinson Hyperlegible";
 	background-color: #303446;
@@ -12,6 +13,7 @@ body {
 a:link {
 	color: #c6d0f5;
 }
+
 a:visited {
 	color: #c6d0f5;
 }
@@ -44,7 +46,7 @@ a:visited {
 	display: flex;
 	flex-wrap: wrap;
 	border-radius: 25px;
-	border: 2px solid #292c3c;
+	border: 2px solid #f4b8e4;
 	padding: 20px;
 	width: auto;
 	height: auto;
@@ -55,24 +57,47 @@ a:visited {
 	flex-direction: column;
 }
 
-.card, .card > a {
+.project-card,
+.project-card>a,
+.card,
+.card>a {
 	border-radius: 25px;
-	border: 2px solid #292c3c;
+	border: 2px solid #f4b8e4;
 }
 
 .card {
 	padding: 20px;
 	width: 200px;
 	height: auto;
+	background-color: #303446;
 }
 
-.card > a {
+.project-card {
+	padding: 20px;
+	width: 200px;
+	height: auto;
+	background-color: #292c3c;
+}
+
+.card:hover {
+	background-color: #51576d;
+}
+
+.card:active {
+	background-color: #626880;
+}
+
+.card>a {
 	padding: 10px;
 }
 
-.card > img {
+.project-card>a {
+	padding: 10px;
+}
+
+.project-card>img {
 	margin: -20px;
-	z-index: -1;
+	z-index: 1;
 	max-width: 240px;
 	height: auto;
 	position: relative;
@@ -83,6 +108,7 @@ button {
 	/* css is fucking stupid i shouldn't have to redeclare this shit for every button on the page */
 	background-color: #303446;
 	color: #c6d0f5;
+	border-color: #f4b8e4;
 	width: fit-content !important;
 }
 
@@ -91,12 +117,13 @@ button:active {
 }
 
 button:hover {
-	background-color: #414559;
+	background-color: #51576d;
 }
 
 .navbar {
 	border-radius: 5px;
-	border: 2px solid #292c3c;
+	border: 2px solid #f4b8e4;
+	background-color:  	#292c3c;
 	text-align: left;
 	list-style-type: none;
 	margin: 0;
