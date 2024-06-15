@@ -43,6 +43,7 @@ a:visited {
 }
 
 .testimony {
+	background-color: #292c3c;
 	display: flex;
 	flex-wrap: wrap;
 	border-radius: 25px;
@@ -57,8 +58,6 @@ a:visited {
 	flex-direction: column;
 }
 
-.project-card,
-.project-card>a,
 .card,
 .card>a {
 	border-radius: 25px;
@@ -66,13 +65,6 @@ a:visited {
 }
 
 .card {
-	padding: 20px;
-	width: 200px;
-	height: auto;
-	background-color: #303446;
-}
-
-.project-card {
 	padding: 20px;
 	width: 200px;
 	height: auto;
@@ -91,11 +83,7 @@ a:visited {
 	padding: 10px;
 }
 
-.project-card>a {
-	padding: 10px;
-}
-
-.project-card>img {
+.card>img {
 	margin: -20px;
 	z-index: 1;
 	max-width: 240px;
