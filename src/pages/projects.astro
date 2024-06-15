@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import ProjectCard from "../components/projectCard.astro"
+import anuraos from "../images/projects/anuraos.png?url";
+import sh1mmer from "../images/projects/sh1mmer.png?url";
 ---
 
 <Layout
@@ -27,11 +29,15 @@ import ProjectCard from "../components/projectCard.astro"
 			name="anuraOS"
 			description="webOS with an x86 emulator and friendly developer APIs"
 			homepage="https://github.com/MercuryWorkshop/anuraOS"
+			image={anuraos}
+			image_alt="a picture of the anuraOS desktop with the about anura app pulled up"
 		/>
 		<ProjectCard
 			name="sh1mmer"
-			description="chromebook exploit for running unverified code in the recoveryenvironment"
+			description="chromebook exploit for running unverified code in the chromeOS recovery environment"
 			homepage="https://github.com/MercuryWorkshop/sh1mmer"
+			image={sh1mmer}
+			image_alt="a picture from the sh1mmer beautiful world ui with some utilities listed"
 		/>
 	</div>
 

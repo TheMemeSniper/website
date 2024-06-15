@@ -1,12 +1,17 @@
 ---
+
+
 interface Props {
     name: string
     description: string
+    image?: string
+    image_alt?: string
     homepage: string
 }
 ---
 
 <div class="card">
+    {Astro.props.image != undefined && <img src={Astro.props.image} alt={Astro.props.image_alt}>}
     <h4>{Astro.props.name}</h4>
     <p>{Astro.props.description}</p>
     <br />

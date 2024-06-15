@@ -70,6 +70,15 @@ a:visited {
 	padding: 10px;
 }
 
+.card > img {
+	margin: -20px;
+	z-index: -1;
+	max-width: 240px;
+	height: auto;
+	position: relative;
+	border-radius: 23px 23px 0px 0px;
+}
+
 button {
 	/* css is fucking stupid i shouldn't have to redeclare this shit for every button on the page */
 	background-color: #303446;
