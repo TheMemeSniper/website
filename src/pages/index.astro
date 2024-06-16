@@ -4,11 +4,12 @@ import split from "../images/buttons/split.png?url"
 import stupidcat from "../images/stupidcat.webp?url"
 import peggle2 from "../images/peggle2.webp?url"
 import jack from "../images/buttons/jack.png?url"
+import TestimonyItem from "../components/testimonyItem.astro"
 const wetdryprofile = await fetch(
 	"https://wetdry.world/api/v1/accounts/109768514398335264"
-).then((res) => res.json());
-const avatar_static = wetdryprofile.avatar_static;
-const avatar_source = wetdryprofile.fields[4].value;
+).then((res) => res.json())
+const avatar_static = wetdryprofile.avatar_static
+const avatar_source = wetdryprofile.fields[4].value
 ---
 
 <Layout title="k8's corner" description="Good lordd what is happenin in ther">
@@ -56,14 +57,8 @@ const avatar_source = wetdryprofile.fields[4].value;
 			/>
 			<p>-limineow grimgreen</p>
 		</div>
-		<div class="testimony">
-			<h4>awsum bocchi the rock enjoyer</h4>
-			<p>-micr0 wetdry</p>
-		</div>
-		<div class="testimony">
-			<h4>solid 7/10, high quality brainrot</h4>
-			<p>-doskel doskel</p>
-		</div>
+		<TestimonyItem quote="awsum bocchi the rock enjoyer" name="-micr0 wetdry" />
+		<TestimonyItem quote="solid 7/10, high quality brainrot" name="-doskel doskel" />
 		<div class="testimony">
 			<h4>silly</h4>
 			<p>
@@ -71,14 +66,13 @@ const avatar_source = wetdryprofile.fields[4].value;
 				<img src={peggle2} alt="very, very small gif of the peggle 2 guy" />
 			</p>
 		</div>
-		<div class="testimony">
-			<h4>
-				thememesniper has helped my team and I stay on the same page.
-				Previously, we were all over the board. Using thememesniper has
-				definitely saved us time and money.
-			</h4>
-			<p>-millions wetdry</p>
-		</div>
+		<TestimonyItem
+			quote=`thememesniper has helped my team and I stay on the same page.
+        Previously, we were all over the board. Using thememesniper has
+        definitely saved us time and money.`
+			name="-millions wetdry"
+		/>
+		<TestimonyItem quote="d1 game developer" name="-bronzefeathers wetdry" />
 	</div>
 
 	<h1>The joyous buttons and other trinkets</h1>

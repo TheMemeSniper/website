@@ -1,0 +1,13 @@
+---
+interface Props {
+    quote: string
+    name: string
+}
+---
+
+<div class="testimony">
+    <h4>
+        {Astro.props.quote}
+    </h4>
+    <p>{Astro.props.name}</p>
+</div>
