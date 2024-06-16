@@ -4,9 +4,11 @@ import split from "../images/buttons/split.png?url"
 import stupidcat from "../images/stupidcat.webp?url"
 import peggle2 from "../images/peggle2.webp?url"
 import jack from "../images/buttons/jack.png?url"
-const { avatar_static } = await fetch(
+const wetdryprofile = await fetch(
 	"https://wetdry.world/api/v1/accounts/109768514398335264"
-).then((res) => res.json())
+).then((res) => res.json());
+const avatar_static = wetdryprofile.avatar_static;
+const avatar_source = wetdryprofile.fields[4].value;
 ---
 
 <Layout title="k8's corner" description="Good lordd what is happenin in ther">
@@ -18,6 +20,7 @@ const { avatar_static } = await fetch(
 		src={avatar_static}
 		alt="my profile picture. it's whatever i have it set to on mastodon or just a missing texture if you have noscript on"
 	/>
+	<p>pfp source: {avatar_source}</p>
 	<h3 id="quote"></h3>
 	<noscript>
 		<h3>"My boy! No JS is what all true warriors strive for."</h3>
