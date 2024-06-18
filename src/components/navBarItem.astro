@@ -1,5 +1,13 @@
 ---
-const isActive = Astro.url.pathname.startsWith(Astro.props.path)
+if (Astro.props.path != "/") {
+	var isActive = Astro.url.pathname.startsWith(Astro.props.path)
+} else {
+	var isActive = Astro.url.pathname == "/" // fix home always being selected because it's the root
+}
+
+
+
+
 interface Props {
 	page: string
 	path: string
