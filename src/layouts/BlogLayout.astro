@@ -1,5 +1,6 @@
 ---
 import "../global.css"
+import "../blog.css"
 import { getImage } from "astro:assets"
 import icon from "../images/icons/icon.png"
 import NavBarItem from "../components/navBarItem.astro"
@@ -8,10 +9,8 @@ const favicon = await getImage({
 	width: 32,
 	height: 32,
 })
-interface Props {
-	title: string
-	description: string
-}
+const {frontmatter} = Astro.props;
+
 ---
 
 <!doctype html>
@@ -20,9 +19,9 @@ interface Props {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="robots" content="noindex" />
-		<title>{Astro.props.title}</title>
-		<meta content={Astro.props.title} property="og:title" />
-		<meta content={Astro.props.description} property="og:description" />
+		<title>{"k8's corner - blog - " + frontmatter.title}</title>
+		<meta content={"k8's corner - blog - " + frontmatter.title} property="og:title" />
+		<meta content={frontmatter.description} property="og:description" />
 		<meta property="og:url" content={Astro.url} />
 		<meta content={icon.src} property="og:image" />
 		<meta content="#F5A9B8" name="theme-color" />
@@ -39,7 +38,8 @@ interface Props {
 			<NavBarItem page="Credits" path="/credits/" />
 		</ul>
 
-		<h1>Astro.props.title</h1>
+		<h1 style="text-align: left;">{frontmatter.title}</h1>
+		<h3 style="text-align: left;">{frontmatter.description}</h3>
 
 		<slot />
 
