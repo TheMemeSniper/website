@@ -1,3 +1,19 @@
 body {
 	text-align: left;
 }
+
+article { /* i stole this shit from maia say thanks to it for making my site readable */
+	max-width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:2em;
+	padding-bottom:2em;
+}
+
+img, video {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+}

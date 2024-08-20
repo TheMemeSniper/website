@@ -19,10 +19,11 @@ a:visited {
 }
 
 .center {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
+	max-width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:2em;
+	padding-bottom:2em;
 }
 
 .pfp {
@@ -56,6 +57,25 @@ a:visited {
 	max-width: 50%;
 	align-items: center;
 	flex-direction: column;
+}
+
+.blog-item {
+	background-color: #292c3c;
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 25px;
+	border: 2px solid #f4b8e4;
+	padding: 20px;
+	width: auto;
+	height: auto;
+	min-height: 25%;
+	min-width: 15%;
+	align-items: center;
+	max-width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:2em;
+	padding-bottom:2em;
 }
 
 .card,

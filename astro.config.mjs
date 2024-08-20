@@ -1,6 +1,9 @@
-import { defineConfig } from "astro/config"
+import { defineConfig } from "astro/config";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://thememesniper.dev",
-})
+  site: "https://thememesniper.dev",
+  integrations: [mdx()]
+});

@@ -5,7 +5,6 @@ const blogEntries = await getCollection('blog');
 ---
 
 <Layout title="k8's corner - blog" description="read my deranged ramblings">
-    <div class="testimonials"></div>
         {blogEntries.map(blogPostEntry => (
           <div class="testimony">
             <a href={`/blog/${blogPostEntry.slug}`}>{blogPostEntry.data.title}</a>
