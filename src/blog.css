@@ -1,5 +1,5 @@
 body {
-	text-align: left;
+	text-align: left !important;
 }
 
 article { /* i stole this shit from maia say thanks to it for making my site readable */
