@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogLayout.astro
 title: chromeOS boot process deep dive
 description: the ultimate answer to "Why not XYZ?"
 datePublished: 2024-06-19

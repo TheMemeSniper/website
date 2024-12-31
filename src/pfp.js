@@ -5,7 +5,10 @@ const avatar_static = wetdryprofile.avatar_static
 var avatar_source = wetdryprofile.fields[4].value
 const sourceTextObj = document.getElementById("pfpsource")
 
-document.getElementById("pfp").src = avatar_static
+const pfp = document.getElementById("pfp")
+
+pfp.src = avatar_static
+pfp.alt = wetdryprofile.avatar_description
 if (avatar_source.startsWith("<a")) {
 	var index = avatar_source.search('href="')
 	if (index == -1) {
