@@ -112,6 +112,10 @@ a:visited {
 	border-radius: 23px 23px 0px 0px;
 }
 
+.buttonContainer {
+	line-height: 4;
+}
+
 button {
 	/* css is fucking stupid i shouldn't have to redeclare this shit for every button on the page */
 	background-color: #303446;
