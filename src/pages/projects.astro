@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro"
 import ProjectCard from "../components/projectCard.astro"
 import anuraos from "../images/projects/anuraos.png?url";
 import sh1mmer from "../images/projects/sh1mmer.png?url";
+import harmony from "../images/projects/harmony.png?url";
+import ourtable from "../images/projects/ourtable.png?url";
 ---
 
 <Layout
@@ -20,6 +22,25 @@ import sh1mmer from "../images/projects/sh1mmer.png?url";
 			name="Hyprqueer"
 			description="python script to set gay window borders for Hyprland"
 			homepage="https://github.com/TheMemeSniper/Hyprqueer"
+		/>
+	</div>
+
+	<h1>shinonome labs projects</h1>
+	<h3>(it's just me in shinonome labs but shhhhhh)</h3>
+	<div class="testimonials">
+		<ProjectCard
+		name="Harmony"
+		description="ROBLOX library that lets you easily write cross-platform UI"
+		homepage="https://github.com/shinonome-labs/Harmony"
+		image={harmony}
+		image_alt="a yellow eight-handled wheel on a purple-ish background"
+	/>
+		<ProjectCard
+		name="our table"
+		description="ROBLOX game about throwing cinder blocks at people and killing them with many different ways to outplay your opponents"
+		homepage="https://www.roblox.com/games/109331643547097/our-table"
+		image={ourtable}
+		image_alt="our table logo, part of the text is on the cinderblock that's hitting the table and the other part is in pieces under the table. it is on a purple-ish background"
 		/>
 	</div>
 
