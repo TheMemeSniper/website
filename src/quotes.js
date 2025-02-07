@@ -19,7 +19,14 @@ const quotes = [
   "https://files.thememesniper.dev/sweeney.zip",
   "why the slop is a homebrew BEAST",
   "TheWoods.cs",
-  "PaulMcCartney1994 world's best murder mystery 2 player"
+  "PaulMcCartney1994 world's best murder mystery 2 player",
+  "If you don't like: Lua, you should try: AGAIN!",
+  "hey watson",
+  "Imm nano",
+  "Nano Shinonome",
+  "Give me direct access to port 631 on your machine :steamhappy:",
+  "if you can't handle me at my lowercase then you don't deserve me at my uppercase",
+  "Imagine if kaitlin got a low taper fade"
 ]
 
 function quoteReroll() {
