@@ -20,7 +20,10 @@ const quotes = [
     `The phrase "It's just a [website]" is such a weak mindset. You are ok with what happened...`,
     "Series of tubes",
     "Okay, if I, if I chop you up in a meat grinder...",
-    "When I find my site in tons of trouble,\nFriends and colleagues come to me,\nSpeaking words of wisdom,\nwrite in astro"
+    "When I find my site in tons of trouble,\nFriends and colleagues come to me,\nSpeaking words of wisdom,\nwrite in astro",
+    "cancel gat 8",
+    "go wgat yourself",
+    "You are DONE. Fired."
   ];
   
   const chosen = quotes[Math.floor(Math.random() * quotes.length)];
