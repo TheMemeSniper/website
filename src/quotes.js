@@ -59,16 +59,6 @@ const conditionalQuotes = {
     }
     return quotes
   },
-  misc: () => { // misc conditional quotes
-    var quotes = []
-    navigator.getBattery().then((bm) => {
-      if (bm.level <= 0.2 && !bm.charging) {
-        quotes.push("Your shit is at " + bm.level * 100 + "% plug it in")
-      }
-    })
-
-    return quotes
-  }
 }
 
 var currentConditionalQuotes = []
