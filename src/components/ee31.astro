@@ -1,0 +1,17 @@
+---
+interface Props {
+    href: string
+    image?: string
+    image_alt: string
+}
+---
+<a href={Astro.props.href} target="_blank" title={Astro.props.image_alt}>
+    <img
+        src={Astro.props.image}
+        alt={Astro.props.image_alt}
+        decoding="async"
+        height="31"
+        width="88"
+        style="image-rendering: pixelated"
+    />
+</a>

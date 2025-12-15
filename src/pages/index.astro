@@ -1,12 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import TestimonyItem from "../components/testimonyItem.astro"
+import EE31 from "../components/ee31.astro"
+
 import split from "../images/buttons/split.png?url"
 import peggle2 from "../images/peggle2.webp?url"
 import jack from "../images/buttons/jack.png?url"
 import micro from "../images/buttons/micro.avif?url"
 import binbows from "../images/buttons/binbows.png?url"
 import drew from "../images/buttons/drew.gif?url"
-import TestimonyItem from "../components/testimonyItem.astro"
+
+
+import akane from "../images/trinkets/akane.png?url"
+import arizona from "../images/trinkets/arizona.gif?url"
+import fedora from "../images/trinkets/fedora.gif?url"
+import graphene from "../images/trinkets/grapheneos.gif?url"
+import macintoshwks from "../images/trinkets/macintoshwks.gif?url"
+import miku from "../images/trinkets/miku.gif?url"
+import nano from "../images/trinkets/nano.gif?url"
+import vocaloid from "../images/trinkets/vocaloid.gif?url"
+import vscbutton from "../images/trinkets/vscbutton.gif?url"
+import yanknow from "../images/trinkets/yanknow.gif?url"
+
 ---
 
 <Layout title="k8's corner" description="Good lordd what is happenin in ther">
@@ -25,7 +40,7 @@ import TestimonyItem from "../components/testimonyItem.astro"
 	</noscript>
 	<br />
 	<div>
-		<button class="card" onclick="window.quoteReroll()">90% of gamblers</button>
+		<button class="card button" onclick="window.quoteReroll()">90% of gamblers</button>
 	</div>
 	<br />
 	<div aria-label="links" class="buttonContainer">
@@ -72,7 +87,7 @@ import TestimonyItem from "../components/testimonyItem.astro"
 	</div>
 
 
-	<h1>The joyous buttons and other trinkets</h1>
+	<h1>Niche Button/Media(s)</h1>
 	<div
 		style="
         display: flex;
@@ -82,120 +97,39 @@ import TestimonyItem from "../components/testimonyItem.astro"
         flex-wrap: wrap;
       "
 	>
-		<a href="https://thememesniper.dev" target="_blank">
-			<!-- 88x31 is in /public in case of hotlinking attempts -->
-			<img
-				src="/images/88x31.png"
-				alt="k8's corner"
-				decoding="async"
-				height="31"
-				width="88"
-				style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://velzie.rip" target="_blank">
-			<img
-				src="https://velzie.rip/88x31.png"
-				alt="velzie"
-				decoding="async"
-				height="31"
-				width="88"
-				style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://micro.pages.gay" target="_blank">
-			<img
-				src={micro}
-				alt="Micro"
-				decoding="async"
-				height="31"
-				width="88"
-				style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://jack.cab" target="_blank">
-			<img
-				src={jack}
-				alt="Jack.cab"
-				decoding="async"
-				height="31"
-				width="88"
-				style="image-rendering: pixelated"
-			/>
-		</a>
-		<a
-			href="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/"
-			target="_blank"
-		>
-			<img
-				src="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/people/760ceb3b9c0ba4872cadf3ce35a7a494.png"
-				alt="760ceb3b9c0ba4872cadf3ce35a7a494's website"
-				decoding="async"
-				height="31"
-				width="88"
-				style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://split.pet/" target="_blank">
-			<img
-				src={split}
-				alt="split's website"
-				decoding="async"
-				height="31"
-				width="88"
-				style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://aleteoryx.me/" target="_blank">
-			<img
-				src="https://aleteoryx.me/common/badges/ame.gif"
-				alt="aleteoryx.me"
-				height="31"
-				width="88"
-				style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://bnbws.neocities.org/" target="_blank">
-			<img
-			src={binbows}
-			alt="binbows"
-			height="31"
-			width="88"
-			style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://byemc.xyz" target="_blank">
-			<img 
-			src="https://byemc.xyz/assets/buttons/byebutton.gif" 
-			alt="byespace"
-			height="31"
-			width="88"
-			style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://drewsh.com" target="_blank">
-			<img 
-			src={drew}
-			alt="drew"
-			height="31"
-			width="88"
-			style="image-rendering: pixelated"
-			/>
-		</a>
-		<a href="https://midnaw.neocities.org/" target="_blank">
-			<img
-			src="https://midnaw.neocities.org/buttons/midna.png"
-			alt="midna"
-			height="31"
-			width="88"
-			style="image-rendering: pixelated"
-			/>
-		</a>
+		<EE31 href="https://thememesniper.dev" image="/images/88x31.png" image_alt="k8's corner"/>
+		<EE31 href="https://velzie.rip" image="https://velzie.rip/88x31.png" image_alt="velzie"/>
+		<EE31 href="https://micro.pages.gay" image={micro} image_alt="Micro"/>
+		<EE31 href="https://jack.cab" image={jack} image_alt="Jack.cab" />
+		<EE31 href="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/" 
+			image="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/people/760ceb3b9c0ba4872cadf3ce35a7a494.png"
+			image_alt="760ceb3b9c0ba4872cadf3ce35a7a494's website"
+		/>
+		<EE31 href="https://split.pet/" image={split} image_alt="split's website" />
+		<EE31 href="https://aleteoryx.me/" image="https://aleteoryx.me/common/badges/ame.gif" image_alt="aleteoryx.me"/>
+		<EE31 href="https://bnbws.neocities.org/" image={binbows} image_alt="binbows" /> 
+		<EE31 href="https://byemc.xyz" image="https://byemc.xyz/assets/buttons/byebutton.gif" image_alt="byespace"/>
+		<EE31 href="https://drewsh.com" image={drew} image_alt="drew"/>
+		<EE31 href="https://midnaw.neocities.org/" image="https://midnaw.neocities.org/buttons/midna.png" image_alt="midna"/>
+		<EE31 href="https://gagingo.ing/" image="https://gagingo.ing/img/88x31.png" image_alt="gagingo ing"/>
 	</div>
 	<p>
 		if we're mutuals on fedi ask me to add your button/testimony here! also tell
 		me if you want your button image hotlinked or not
 	</p>
+	<h1>Trinkets</h1>
+	<div>
+		<EE31 image={akane} image_alt="Seyana" href="https://www.youtube.com/watch?v=OVuYIMa5XBw"/>
+		<EE31 image={arizona} image_alt="AriZona Green Tea" href="https://drinkarizona.com/collections/teas/products/green-tea-20oz-tallboy"/>
+		<EE31 image={fedora} image_alt="Fedora" href="https://www.fedoraproject.org/"/>
+		<EE31 image={graphene} image_alt="GrapheneOS" href="https://grapheneos.org/"/>
+		<EE31 image={macintoshwks} image_alt="Macintosh: It Just Works" href="https://www.apple.com/mac/"/>
+		<EE31 image={miku} image_alt="This website is Miku approved" href="https://www.youtube.com/watch?v=bkY_3vXuGBA"/>
+		<EE31 image={nano} image_alt="This website was made with NANO" href="https://nichijou.wiki.gg/wiki/Nano_Shinonome"/>
+		<EE31 image={vocaloid} image_alt="Vocaloid NOW!" href="https://www.vocaloid.com/en/"/>
+		<EE31 image={vscbutton} image_alt="Visual Studio Code" href="https://code.visualstudio.com/"/>
+		<EE31 image={yanknow} image_alt="Yankovic NOW!" href="https://www.youtube.com/watch?v=DFI6cV9slfI"/>
+	</div>
 	<script src="../quotes.js"></script>
 	<script src="../pfp.js"></script>
 </Layout>

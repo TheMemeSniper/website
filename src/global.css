@@ -122,6 +122,7 @@ button {
 	color: #c6d0f5;
 	border-color: #f4b8e4;
 	width: fit-content !important;
+	cursor: pointer;
 }
 
 button:active {
