@@ -5,6 +5,8 @@ import anuraos from "../images/projects/anuraos.png?url";
 import sh1mmer from "../images/projects/sh1mmer.png?url";
 import harmony from "../images/projects/harmony.png?url";
 import ourtable from "../images/projects/ourtable.png?url";
+import nanocms from "../images/projects/nano-cms.svg?url";
+import kanarun from "../images/projects/kana-run.png?url"
 ---
 
 <Layout
@@ -12,16 +14,29 @@ import ourtable from "../images/projects/ourtable.png?url";
 	description="all the stuff i've worked on"
 >
 	<h1>individual projects</h1>
+
 	<div class="testimonials">
+
 		<ProjectCard
-			name="quartz"
-			description="a simple interface to mineflayer for minecraft automation"
-			homepage="https://github.com/TheMemeSniper/quartz"
+			name="nano-cms"
+			description="programmer's idea of how a cms ought to be"
+			homepage="https://github.com/TheMemeSniper/nano-cms"
+			image={nanocms}
+			image_alt="a wind-up toy's key drawn on a blueprint background"
 		/>
+
 		<ProjectCard
-			name="Hyprqueer"
-			description="python script to set gay window borders for Hyprland"
-			homepage="https://github.com/TheMemeSniper/Hyprqueer"
+			name="kana run"
+			description="web game where you type kana as fast as possible"
+			homepage="https://github.com/TheMemeSniper/kana-run"
+			image={kanarun}
+			image_alt="the word 'kana' written in katakana diagonally on a white background"
+		/>
+
+		<ProjectCard
+			name="computercraft archive"
+			description="random stuff i wrote with computercraft. may be useful to you if you play modded minecraft and have computercraft"
+			homepage="https://github.com/TheMemeSniper/computercraft-archive"
 		/>
 	</div>
 
