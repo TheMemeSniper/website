@@ -59,25 +59,6 @@ a:visited {
 	flex-direction: column;
 }
 
-.blog-item {
-	background-color: #292c3c;
-	display: flex;
-	flex-wrap: wrap;
-	border-radius: 25px;
-	border: 2px solid #f4b8e4;
-	padding: 20px;
-	width: auto;
-	height: auto;
-	min-height: 25%;
-	min-width: 15%;
-	align-items: center;
-	max-width:1000px;
-	margin-left:auto;
-	margin-right:auto;
-	padding-top:2em;
-	padding-bottom:2em;
-}
-
 .card,
 .card>a {
 	border-radius: 25px;
@@ -186,4 +167,15 @@ ul, ol {
   margin: 0;
   margin-left: 40%;
   text-align: left;
+}
+
+.blog-item {
+	padding: 20px;
+	width: 200px;
+	height: auto;
+	background-color: #292c3c;
+	white-space: nowrap;
+	border-radius: 25px;
+	border: 2px solid #f4b8e4;
+	margin-top: 1em;
 }

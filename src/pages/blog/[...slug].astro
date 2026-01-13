@@ -1,21 +1,40 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
+import { marked } from 'marked';
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog");
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
 }
 
-const post = Astro.props;
-const { Content } = await render(post);
+const { post } = Astro.props;
+const { metadata, content } = post.data;
 
 type Props = CollectionEntry<"blog">;
 
 import Layout from "../../layouts/BlogLayout.astro";
 ---
-<Layout {...post.data}>
-  <Content />
+<Layout metadata={metadata}>
+	{content.map((widget) => {
+		if (typeof widget === "string") {
+			return <p>{widget}</p>;
+		}
+
+		switch(widget.type) {
+			case 'img':
+				return <img src={widget.data.src} alt={widget.data.alt} />;
+			case 'vid':
+				return <video controls src={widget.data.src}>
+					<p>{widget.data.fallback}</p>
+				</video>
+			case 'richtext':
+				return <div set:html={marked.parse(widget.data)}></div>
+			default:
+				return null;
+		}
+	})}
+	<p>> 🗝️ built with <a href="https://thememesniper.github.io/nano-cms/" target="_blank">nano-cms</a>, version {post.data["nano-cms"].version}</p>
 </Layout>

@@ -12,7 +12,7 @@ const favicon = await getImage({
 })
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description } = Astro.props;
+const { metadata } = Astro.props;
 
 ---
 
@@ -22,9 +22,9 @@ const { title, description } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="robots" content="noindex" />
-		<title>{"k8's corner - blog - " + title}</title>
-		<meta content={"k8's corner - blog - " + title} property="og:title" />
-		<meta content={description} property="og:description" />
+		<title>{"k8's corner - blog - " + metadata.title}</title>
+		<meta content={"k8's corner - blog - " + metadata.title} property="og:title" />
+		<meta content={metadata.description} property="og:description" />
 		<meta property="og:url" content={Astro.url} />
 		<meta content={icon.src} property="og:image" />
 		<meta content="#F5A9B8" name="theme-color" />
@@ -42,8 +42,9 @@ const { title, description } = Astro.props;
 			<NavBarItem page="Credits" path="/credits/" />
 		</ul>
 
-		<h1 style="text-align: left;">{title}</h1>
-		<h3 style="text-align: left;">{description}</h3>
+		<h1 style="text-align: left;">{metadata.title}</h1>
+		<h3 style="text-align: left;">{metadata.description}</h3>
+		<p style="text-align: left;">by {metadata.authors}</p>
 		<article>
 		<slot />
 		</article>

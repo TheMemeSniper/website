@@ -1,0 +1,71 @@
+{
+  "nano-cms": {
+    "version": 3
+  },
+  "metadata": {
+    "title": "the magic behind our table",
+    "description": "how a video of a kid getting hit with a prop cinder block evolved into a machination beyond my comprehension",
+    "authors": "Kaitlin",
+    "tags": ["roblox", "gamedev", "ourtable"],
+    "date": "2025-03-30"
+  },
+  "content": [
+    {
+      "type": "richtext",
+      "data": "# prologue\n\non November 15th, 2024, i had recalled the existence of [this video by Scott Prop and Roll on YouTube](https://www.youtube.com/watch?v=Lg3jyMeRbjU). in this video, Scott (the guy running the channel and the father of his kid Watson) complains about how being a prop master makes it impossible for him to prank his kids anymore. he demonstrates this by pulling out a foam prop cinder block and as Watson rides by on his scooter, he says \"hey watson, cinder block!\", and Watson doesn't even react until Scott says \"nothing.\" the reason why this video was so notable was because a little after this video was published somebody cut the part where he threw the cinder block out of context. this clip of the video cutting just before the cinder block hits him allowed this video to present itself to me and dwell in my mind.\n"
+    },
+    "\n        after pulling this video out from the furthest extents of my memory, i wanted to bring it into a game form, since i was at school, bored, and had nothing else to do. the usual conditions for me starting a project. little did i know this simple concept of throwing a cinder block at somebody to kill them would grow into a game that's actually pretty fun with friends.",
+    {
+      "type": "richtext",
+      "data": "# silly beginnings\n\ni had [published a video the first working version of the game](https://wetdry.world/@thememesniper/113490006847436586) after working on it for a few hours, honing in exactly what i wanted the game to look like and how it would function. it was a very simple game at this stage, only composed of the power bar, a couple of RemoteEvents and a whole 3 scripts, but curiosity on what else i could add would eventually start transforming the game.\n\na day after the first version, i had added the [first version of the cinder block menu](https://wetdry.world/@thememesniper/113495409142109749) to the game, with only the normal cinder block and the explosive cinder block. i had also done some minor UI tweaks and debuted our table's face, watson. as in the video, he is on a scooter, but his actual form is just EvilResidentFromEpic's avatar. i ended up [publishing the game to the public the day after](https://wetdry.world/@thememesniper/113501302071321448)."
+    },
+    "\n        i have no record of it, but before the modes menu was added, there was the clusterbomb cinder block. it only clustered explosive cinder blocks, and i wondered, \"what if you could use different cinder blocks with this?\", so then i added the mode menu. i also added shotgun as another test.",
+    "\n        i later introduced a new major part of the game: ultimate",
+    {
+      "type": "richtext",
+      "data": "there was only one ultimate, being a [very primitive version of the malevolent shrine in v2.0.0](https://wetdry.world/@thememesniper/113771814311219191), but it was still really fun. i added a bhop ultimate later and a couple others."
+    },
+    "\n        during this time, i was mostly just experimenting with gameplay concepts to see what was fun and what sucked. i ended up adding a ton new cinder blocks and modes to go along with them, but as i did something became increasingly obvious:",
+    {
+      "type": "richtext",
+      "data": "# THE GAME'S CODE SUCKED ASS"
+    },
+    "\n        you probably don't even have to worry about this if you're reading this past April of 2025 or whenever i publish v2.0.0, but our table v1.0.0's codebase sucked major ass. it felt like everything i was doing was slowly becoming a monolith inside of chargeController and brickThrower, the client-side and server-side counterparts of the brick throwing system. while not much of the server-side code changed in v2.0.0 (it was fine for the most part), the client code had to be nearly completely rewritten.",
+    {
+      "type": "richtext",
+      "data": "if you ever wondered why [Harmony](https://github.com/shinonome-labs/Harmony) was created, it was because of our table. to explain this, i'll need to explain a bit about Roblox and UserInputService."
+    },
+    {
+      "type": "richtext",
+      "data": "## Nerd shit"
+    },
+    "\n        if you've ever worked with Roblox scripting and UserInputService, you probably know about how annoying it is to write all that boilerplate for a specified action in your game. with all the menus i had to rewrite in v2.0.0, i was fed up with rewriting all this code for UserInputService, and decided to pause development on our table's UI for a bit to write a wrapper around UserInputService.",
+    "\n        Harmony was the result of this work, and while it's most definitely not perfect, it's still a major part of our table and has definitely made life a lot easier for me whenever i want to implement a new menu or action. InputMaps have probably been my best idea since rewriting the website you're reading this on right now.",
+    {
+      "type": "richtext",
+      "data": "## Nerd shit over now"
+    },
+    "\n        after rewriting our table's UI completely, a new problem emerged.",
+    {
+      "type": "richtext",
+      "data": "# Death, Taxes, and Physics Performance Issues"
+    },
+    "\n        if you've ever played our table v1.0.0, you might have noticed how very slow the game gets when you start blowing a bunch of shit up, and how the game becomes nearly unplayable. to explain these slowdowns, we'll have to explain how physics works in Roblox.",
+    {
+      "type": "richtext",
+      "data": "Roblox has a concept called \"Network Ownership\", whereby someone on the network (in the game) owns a specific part and is responsible for calculating physics and forces for that part. by default, unless the part is parented to a player's character, the network owner is set to `nil`, meaning the server is responsible for the physics of that part. as you can imagine, juggling all the things the server has to do *alongside* calculating physics for all parts in the game and replicating that to all clients is bound to cause some slowdowns."
+    },
+    "\n        our table v2.0.0 takes a simple approach to solving this issue; your cinder blocks will have their network ownership set to you, and destruction physics are run entirely on your client. this causes some major desync issues (especially with the destruction physics off toggle), but i'll go about this in a different way in the future.",
+    {
+      "type": "richtext",
+      "data": "# our table's future"
+    },
+    "\n        for now, i think this game is nuts and i love it. while i'm trying to make it comprehensible to new players, such as with the tutorial introduced in v2.0.0, i believe our table's biggest flaw is that it's very hard to learn the game on your own. i intend to fix this and more issues like destruction in future updates, alongside new content to keep the game fun.",
+    "\n        thank you and thanks to everybody and everything that made our table possible. this game is awesome not only to play but to work on as well.",
+    "\n        if you'd like to play our table, i've included some links below. the stable version of our table gets updates infrequently and at the time of writing is still v1.0.0, while experimental is bug-prone but the latest release of the game. at the time of writing, experimental is v2.0.0.",
+    {
+      "type": "richtext",
+      "data": "# [play our table stable](https://www.roblox.com/games/109331643547097/our-table)\n# [play our table experimental](https://www.roblox.com/games/122862926011586/EXPERIMENTAL-our-table)"
+    }
+  ]
+}
