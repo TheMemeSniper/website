@@ -1,0 +1,13 @@
+---
+interface Props {
+    name: string;
+}
+---
+
+<picture aria-hidden="true">
+    <source
+        srcset=`/icons/light/${Astro.props.name}.svg`
+        media="(prefers-color-scheme: light)"
+    />
+    <img src=`/icons/dark/${Astro.props.name}.svg` />
+</picture>

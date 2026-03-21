@@ -1,5 +1,7 @@
 // 1. Import utilities from `astro:content`
-import { z, defineCollection } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+import { glob } from 'astro/loaders';
 // 2. Define your collection(s)
 const img = z.object({
 	type: z.literal('img'),
@@ -23,7 +25,7 @@ const richtext = z.object({
 })
 
 const blog = defineCollection({
-	type: 'data',
+	loader: glob({ base: './src/content/blog', pattern: '**/*.json' }),	
 	schema: z.object({
         "nano-cms": z.object({
             version: z.number()

@@ -3,19 +3,39 @@
 	src: url(./fonts/Atkinson-Hyperlegible-Regular.woff2) format("woff2");
 }
 
+:root {
+	--background-color: #303446;
+	--secondary-background-color: #292c3c;
+	--tertiary-background-color: #51576d;
+	--active-background-color: #626880;
+	--text-color: #c6d0f5;
+	--accent-color: #f4b8e4;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--background-color: #eff1f5;
+		--secondary-background-color: #e6e9ef;
+		--tertiary-background-color: #dce0e8;
+		--active-background-color: #ccd0da;
+		--text-color: #4c4f69;
+		--accent-color: #ea76cb;
+	}
+}
+
 body {
 	font-family: "Atkinson Hyperlegible";
-	background-color: #303446;
-	color: #c6d0f5;
+	background-color: var(--background-color);
+	color: var(--text-color);
 	text-align: center;
 }
 
 a:link {
-	color: #c6d0f5;
+	color: var(--text-color)
 }
 
 a:visited {
-	color: #c6d0f5;
+	color: var(--text-color)
 }
 
 .center {
@@ -44,11 +64,11 @@ a:visited {
 }
 
 .testimony {
-	background-color: #292c3c;
+	background-color: var(--secondary-background-color);
 	display: flex;
 	flex-wrap: wrap;
 	border-radius: 25px;
-	border: 2px solid #f4b8e4;
+	border: 2px solid var(--accent-color);
 	padding: 20px;
 	width: auto;
 	height: auto;
@@ -62,23 +82,23 @@ a:visited {
 .card,
 .card>a {
 	border-radius: 25px;
-	border: 2px solid #f4b8e4;
+	border: 2px solid var(--accent-color);
 }
 
 .card {
 	padding: 20px;
 	width: 200px;
 	height: auto;
-	background-color: #292c3c;
+	background-color: var(--secondary-background-color);
 	white-space: nowrap;
 }
 
 .card:hover {
-	background-color: #51576d;
+	background-color: var(--tertiary-background-color);
 }
 
 .card:active {
-	background-color: #626880;
+	background-color: var(--active-background-color);
 }
 
 .card>a {
@@ -100,19 +120,19 @@ a:visited {
 
 button {
 	/* css is fucking stupid i shouldn't have to redeclare this shit for every button on the page */
-	background-color: #303446;
-	color: #c6d0f5;
-	border-color: #f4b8e4;
+	background-color: var(--secondary-background-color);
+	color: var(--text-color);
+	border-color: var(--accent-color);
 	width: fit-content !important;
 	cursor: pointer;
 }
 
 button:active {
-	background-color: #626880;
+	background-color: var(--active-background-color);
 }
 
 button:hover {
-	background-color: #51576d;
+	background-color: var(--tertiary-background-color);
 }
 
 button {
@@ -121,8 +141,8 @@ button {
 
 .navbar {
 	border-radius: 5px;
-	border: 2px solid #232634;
-	background-color:  	#292c3c;
+	border: 2px solid var(--tertiary-background-color);
+	background-color:  var(--background-color);
 	text-align: left;
 	list-style-type: none;
 	margin: 0;
@@ -145,11 +165,11 @@ button {
 }
 
 h3, p {
-	color: #a5adce;
+	color: var(--text-color);
 }
 
 #quote {
-	color: #c6d0f5
+	color: var(--text-color)
 }
 
 .bio {
@@ -173,9 +193,13 @@ ul, ol {
 	padding: 20px;
 	width: 200px;
 	height: auto;
-	background-color: #292c3c;
+	background-color: var(--secondary-background-color);
 	white-space: nowrap;
 	border-radius: 25px;
-	border: 2px solid #f4b8e4;
+	border: 2px solid var(--accent-color);
 	margin-top: 1em;
+}
+
+picture {
+	vertical-align: middle;
 }
