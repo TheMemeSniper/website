@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import { marked } from 'marked';
 
 export async function getStaticPaths() {
@@ -10,14 +10,16 @@ export async function getStaticPaths() {
   }));
 }
 
-const { post } = Astro.props;
-const { metadata, content } = post.data;
+const { post } = Astro.props; 
+const { content } = post.data;
 
-type Props = CollectionEntry<"blog">;
+type Props = {
+    post: CollectionEntry<"blog">;
+};
 
 import Layout from "../../layouts/BlogLayout.astro";
 ---
-<Layout metadata={metadata}>
+<Layout {...post.data}>
 	{content.map((widget) => {
 		if (typeof widget === "string") {
 			return <p>{widget}</p>;
@@ -36,5 +38,5 @@ import Layout from "../../layouts/BlogLayout.astro";
 				return null;
 		}
 	})}
-	<p>> 🗝️ built with <a href="https://thememesniper.github.io/nano-cms/" target="_blank">nano-cms</a>, version {post.data["nano-cms"].version}</p>
+	<p> 🗝️ built with <a href="https://thememesniper.github.io/nano-cms/" target="_blank">nano-cms</a>, version {post.data["nano-cms"].version}</p>
 </Layout>
