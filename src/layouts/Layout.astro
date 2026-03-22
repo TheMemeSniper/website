@@ -11,6 +11,7 @@ const favicon = await getImage({
 interface Props {
 	title: string
 	description: string
+	additionalMetaTags?: string
 }
 ---
 
@@ -27,6 +28,7 @@ interface Props {
 		<meta content={icon.src} property="og:image" />
 		<meta content="#F5A9B8" name="theme-color" />
 		<link rel="icon" href={favicon.src} />
+		<Fragment set:html={Astro.props.additionalMetaTags} />
 	</head>
 	<body>
 		<ul class="navbar">

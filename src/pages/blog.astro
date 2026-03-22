@@ -10,7 +10,8 @@ blogEntries.sort((a, b) => {
 blogEntries.reverse()
 ---
 
-<Layout title="k8's corner - blog" description="read my deranged ramblings">
+<Layout title="k8's corner - blog" description="read my deranged ramblings"
+  additionalMetaTags='<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />'>
   <div class="center">
       <a href="/rss.xml" target="_blank" class="card button">
         <DynamicIcon name="rss"></DynamicIcon>
