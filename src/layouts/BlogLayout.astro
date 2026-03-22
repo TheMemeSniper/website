@@ -3,7 +3,7 @@ import "../global.css"
 import "../blog.css"
 import { getImage } from "astro:assets"
 import type { CollectionEntry } from "astro:content";
-import icon from "../images/icons/icon.png"
+import icon from "../../public/icon.png";
 import NavBarItem from "../components/navBarItem.astro"
 const favicon = await getImage({
 	src: icon,
