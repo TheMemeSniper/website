@@ -20,7 +20,13 @@ const quotes = [
   "Pick up that can. Put it in the trash.",
   "They're kinda nice / They're kinda nice, right? / Name some kinda nice places",
   "Install that. Install that. INSTALL THAT. INSTALL THAT. INSTALL THAT. Install that. A little bit of this, a little bit of that.",
-  ""
+  "You can't understand what you never see / This ugly bloom born anew never wanted to be",
+  "What else is there to say? / I just can't erase / This unseemly stain of makeup tainting my face",
+  "If you and I could be a constellation in the sky",
+  "A thing of beauty, I know / Will never fade away",
+  "To lead a lie or watch your daughter die / I forced the issue, what a waste of time!",
+  "So leave her behind, it's an eye for an eye!",
+  "決まって、知らん振りばっかり…"
 ]
 const chosen = quotes[Math.floor(Math.random() * quotes.length)]
 document.getElementById("footer-quote").textContent = `"${chosen}"`
