@@ -1,0 +1,21 @@
+---
+
+
+interface Props {
+    href: string,
+    title: string,
+    subtitle?: string,
+    description: string,
+    image?: string,
+    imgAlt?: string
+}
+---
+
+<div class="directory-item">
+    <a href={Astro.props.href} target="_blank" >
+        { Astro.props.image && <img src={Astro.props.image} alt={Astro.props.imgAlt} /> }
+        <h2>{Astro.props.title}</h2>
+    </a>
+    { Astro.props.subtitle && <p style="color: var(--subtext-color)">{Astro.props.subtitle}</p> }
+    <p>{Astro.props.description}</p>
+</div>

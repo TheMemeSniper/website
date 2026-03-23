@@ -1,0 +1,124 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DirectoryItem from "../components/directory-item.astro";
+
+// Forgive me if this gets very long like the index
+
+import kairiki from "../images/directory/music/kairiki.jpg?url"
+import inabakumori from "../images/directory/music/inabakumori.webp?url"
+import steaka from "../images/directory/music/steaka.webp?url"
+import r906 from "../images/directory/music/r-906.webp?url"
+import iroharingo from "../images/directory/music/iroharingo.jpg?url"
+import frog96 from "../images/directory/music/frog96.jpg?url"
+import mycatconstruction from "../images/directory/music/mycatconstruction.jpg?url"
+import deco27 from "../images/directory/music/deco27.webp?url"
+//
+import pjskSticker from "../images/directory/websites/pjsk-sticker-maker.png?url"
+import mas from "../images/directory/websites/mas.png?url"
+import printables from "../images/directory/websites/printables.png?url"
+import cobalt from "../images/directory/websites/cobalt.png?url"
+---
+<Layout title="k8's corner - directory" description="things i find cool or interesting">
+    <h1>List that may or may not grow in the future. Just a bunch of things I like and want to link you to</h1>
+    <div class="center">
+        <details>
+            <summary>Music Artists</summary>
+            <h2>Japanese lyrics</h2>
+            <p>artists that (usually) write lyrics in Japanese</p>
+            <p>you'll quickly notice almost if not all of them are vsynth producers</p>
+            <div class="directory-flex">
+                <DirectoryItem 
+                    title="Kairiki Bear" 
+                    description="very influential vocaloid producer known for some of my favorite songs like Venom" 
+                    href="https://www.youtube.com/channel/UCp13SxKXbhCS0lb6Ty774iQ"
+                    image={kairiki}
+                    imgAlt="an anime girl wearing a bear hoodie giving the viewer a side-eye"
+                />
+                <DirectoryItem
+                    title="inabakumori"
+                    description="vocaloid producer that mainly uses kaai yuki, very unique instrumentals. you almost certainly have heard one of their songs"
+                    href="https://www.youtube.com/channel/UCNElM45JypxqAR73RoUQ10g"
+                    image={inabakumori}
+                    imgAlt="two legs on a half-gray background"
+                />
+                <DirectoryItem
+                    title="STEAKA"
+                    description="EDM vocaloid producer. reaaaally cool MVs"
+                    href="https://www.youtube.com/@steaka_id"
+                    image={steaka}
+                    imgAlt='an envelope with the text "STEAKA" below it'
+                />
+                <DirectoryItem
+                    title="r-906"
+                    description="vocaloid producer that trades in a wide range of genres. almost never misses"
+                    href="https://www.youtube.com/@r-906"
+                    image={r906}
+                    imgAlt="a magnifying glass on a yellow background magnifying a stylized r-906 wordmark"
+                />
+                <DirectoryItem
+                    title="irohaRingo"
+                    description="vocaloid producer thats actually insane at tuning. listen to Witness"
+                    href="https://www.youtube.com/channel/UChnOlCNaeYKLx4ktRAnyfWw"
+                    image={iroharingo}
+                    imgAlt="anime girl with bangs and hair clips resting her head on her hand and drooling? sorry i dont realy know"
+                />
+                <DirectoryItem
+                    title="Frog96"
+                    description="vocaloid producer that really hones in on specific themes in their MVs"
+                    href="https://www.youtube.com/channel/UC2395o6B5FIej43GpqSc1eg"
+                    image={frog96}
+                    imgAlt="a frog drawn in blue ink on what seems to be notepad paper"
+                />
+                <DirectoryItem
+                    title="My cat construction*"
+                    subtitle="*: my translation. original: 愛猫コンストラクション"
+                    description="vocaloid producer that as of writing exclusively uses kaai yuki. i started listening from their very first songs"
+                    href="https://www.youtube.com/channel/UC2dFDVSaa6WOJcTHbrGSK-w"
+                    image={mycatconstruction}
+                    imgAlt="a kaai yuki with black bunny ears(?)"
+                />
+                <DirectoryItem
+                    title="DECO*27"
+                    description="vocaloid producer, rock+hyperpop, though my favorite songs are the rock ones like Marshmallow"
+                    href="https://www.youtube.com/@DECO27"
+                    image={deco27}
+                    imgAlt="a white circle with the number 27 in it and an asterisk at the edge"
+                />
+            </div>
+        </details>
+        <details>
+            <summary>Websites & tools</summary>
+            <div class="directory-flex">
+                <DirectoryItem
+                    title="PJSK sticker maker"
+                    description="make your own project sekai stamps"
+                    href="https://prsk.erica.moe/"
+                    image={pjskSticker}
+                    imgAlt="mizuki akiyama from project sekai pointing at the viewer, winking with an Astro error message about the content collection blog not existing"
+                />
+                <DirectoryItem
+                    title="MAS"
+                    description="Activate & download different versions of Windows"
+                    href="https://massgrave.dev/"
+                    image={mas}
+                    imgAlt="a key next to a gear"
+                />
+                <DirectoryItem
+                    title="Printables"
+                    description="Prusa's own website for printable 3D models. it has the least bullshit out of all the options i've seen"
+                    href="https://www.printables.com/"
+                    image={printables}
+                    imgAlt="a stylized P on an orange background"
+                />
+                <DirectoryItem
+                    title="cobalt"
+                    description="download everything from everywhere"
+                    href="https://cobalt.tools/"
+                    image={cobalt}
+                    imgAlt="two white arrows on a black background"
+                />
+
+            </div>
+        </details>
+    </div>
+</Layout>
