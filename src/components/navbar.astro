@@ -1,0 +1,15 @@
+---
+import NavBarItem from "./navBarItem.astro"
+
+import icon from "../../public/icon.png";
+---
+<ul class="navbar">
+    <li>
+        <a href="/"><img aria-hidden="true" src={icon.src} /></a>
+    </li>
+    <NavBarItem page="Home" path="/" />
+    <NavBarItem page="Projects" path="/projects/" />
+    <NavBarItem page="Directory" path="/directory/" />
+    <NavBarItem page="Blog" path="/blog/" />
+    <NavBarItem page="Credits" path="/credits/" />
+</ul>

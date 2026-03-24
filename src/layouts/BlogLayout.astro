@@ -4,7 +4,7 @@ import "../blog.css"
 import { getImage } from "astro:assets"
 import type { CollectionEntry } from "astro:content";
 import icon from "../../public/icon.png";
-import NavBarItem from "../components/navBarItem.astro"
+import Navbar from "../components/navbar.astro";
 const favicon = await getImage({
 	src: icon,
 	width: 32,
@@ -33,15 +33,7 @@ const { metadata } = Astro.props;
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
 	</head>
 	<body>
-		<ul class="navbar">
-			<li>
-				<a href="/"><img aria-hidden="true" src={icon.src} /></a>
-			</li>
-			<NavBarItem page="Home" path="/" />
-			<NavBarItem page="Projects" path="/projects/" />
-			<NavBarItem page="Blog" path="/blog/" />
-			<NavBarItem page="Credits" path="/credits/" />
-		</ul>
+		<Navbar />
 
 		<h1 style="text-align: left;">{metadata.title}</h1>
 		<h3 style="text-align: left;">{metadata.description}</h3>

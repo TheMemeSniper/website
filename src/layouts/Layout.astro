@@ -2,7 +2,7 @@
 import "../global.css"
 import { getImage } from "astro:assets"
 import icon from "../../public/icon.png";
-import NavBarItem from "../components/navBarItem.astro"
+import Navbar from "../components/navbar.astro";
 const favicon = await getImage({
 	src: icon,
 	width: 32,
@@ -31,16 +31,7 @@ interface Props {
 		<Fragment set:html={Astro.props.additionalMetaTags} />
 	</head>
 	<body>
-		<ul class="navbar">
-			<li>
-				<a href="/"><img aria-hidden="true" src={icon.src} /></a>
-			</li>
-			<NavBarItem page="Home" path="/" />
-			<NavBarItem page="Projects" path="/projects/" />
-			<NavBarItem page="Directory" path="/directory/" />
-			<NavBarItem page="Blog" path="/blog/" />
-			<NavBarItem page="Credits" path="/credits/" />
-		</ul>
+		<Navbar />
 
 		<slot />
 
