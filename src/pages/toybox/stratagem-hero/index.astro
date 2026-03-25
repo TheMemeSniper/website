@@ -58,7 +58,7 @@ import { stratagems, categories } from "./stratagems"
 											type="checkbox"
 											id={stratagem}
 											checked={stratagem !== "Orbital Illumination Flare"}
-											class={category}
+											class={category.replaceAll(" ", "-")}
 										/>
 										{stratagem}
 									</label>
@@ -196,16 +196,19 @@ import { stratagems, categories } from "./stratagems"
 			activeStratagems = []
 			for (const category in categories) {
 				const categoryCheckbox = document.getElementById(category)
+				console.log(category, !categoryCheckbox?.checked)
 				if (!categoryCheckbox?.checked) continue
 
-				const checkboxes = document.querySelectorAll("." + category)
+				const checkboxes = document.querySelectorAll("." + category.replaceAll(" ", "-"))
 				checkboxes.forEach((gemCheckbox) => {
 					if (gemCheckbox.checked) {
+						console.log(gemCheckbox.id)
 						const found = stratagems.find((obj) => obj.name === gemCheckbox.id)
 						if (found) activeStratagems.push(found)
 					}
 				})
 			}
+			console.log(activeStratagems)
 		}
 
 		updateStratagemList()
