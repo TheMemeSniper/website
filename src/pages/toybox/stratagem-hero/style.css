@@ -1,0 +1,8 @@
+.stratagem-arrow {
+    width: 10%;
+    height: auto;
+}
+
+.active {
+    color: var(--accent-color);
+}

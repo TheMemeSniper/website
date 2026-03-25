@@ -11,6 +11,8 @@
 	--text-color: #c6d0f5;
 	--subtext-color: #a5adce;
 	--accent-color: #f4b8e4;
+	--bad-color: #e78284;
+	--good-color: #a6d189;
 }
 
 @media (prefers-color-scheme: light) {
@@ -22,6 +24,8 @@
 		--text-color: #4c4f69;
 		--subtext-color: #6c6f85;
 		--accent-color: #ea76cb;
+		--bad-color: #d20f39;
+		--good-color: #40a02b;
 	}
 }
 
@@ -260,4 +264,28 @@ details {
 	flex-wrap: wrap;
 	flex-basis: 15%;
 	justify-content: center;
+}
+
+.memo {
+	padding: 20px;
+	background-color: var(--secondary-background-color);
+}
+
+.bad-border {
+	border-radius: 25px;
+	border: 2px solid var(--bad-color);
+}
+
+.good-border {
+	border-radius: 25px;
+	border: 2px solid var(--good-color);
+}
+
+.border {
+	border-radius: 25px;
+	border: 2px solid var(--accent-color);
+}
+
+hr {
+	border: 1px solid var(--tertiary-background-color);
 }

@@ -1,0 +1,77 @@
+---
+import ToyboxLayout from "../../../layouts/ToyboxLayout.astro"
+import "./style.css"
+import { categories } from "./stratagems"
+---
+
+<ToyboxLayout
+	title="k8's corner - toybox/stratagem hero"
+	description="toybox: clone of the helldivers 2 minigame"
+>
+	<p>use WASD or arrow keys</p>
+	<p>controller and touch support Maybe Possibly coming soon</p>
+	<img id="stratagem-icon" class="center" />
+
+	<h1 id="name-header">input to play</h1>
+
+	<div class="center" id="arrow-container"></div>
+
+	<template id="arrow-template">
+		<svg
+			class="stratagem-arrow"
+			width="100%"
+			height="100%"
+			viewBox="0 0 1000 1000"
+			style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"
+		>
+			<g transform="matrix(0,-1.029866,4.119464,0,-370.751802,1029.866117)">
+				<path
+					d="M29,259.925L29,162.825L514.5,162.825L514.5,90L1000,211.375L514.5,332.75L514.5,259.925L29,259.925Z"
+					fill="currentColor"></path>
+			</g>
+		</svg>
+	</template>
+
+	<div class="center">
+		<h1 id="correct-count" class="memo good-border">correct: 0</h1>
+		<h1 id="incorrect-count" class="memo bad-border">incorrect: 0</h1>
+		<details>
+			<summary>options</summary>
+			<h1>enabled stratagems</h1>
+			<div class="center">
+				{
+					Object.entries(categories).map(([category, gems]) => (
+						<>
+							<label for={category} style="font-size: 2em;">
+								<input
+									type="checkbox"
+									id={category}
+									checked={category !== "Other"}
+								/>
+								{category}
+							</label>
+							<hr />
+							<div class="testimonials">
+								{gems.map((stratagem) => (
+									<label for={stratagem}>
+										<input
+											type="checkbox"
+											id={stratagem}
+											checked={stratagem !== "Orbital Illumination Flare"}
+											class={category}
+										/>
+										{stratagem}
+									</label>
+								))}
+							</div>
+							<hr />
+						</>
+					))
+				}
+				<button class="card" id="update-sets">OK</button>
+			</div>
+		</details>
+	</div>
+
+	<script src="./game"></script>
+</ToyboxLayout>
