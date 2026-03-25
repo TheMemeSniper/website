@@ -1,7 +1,7 @@
 ---
 import ToyboxLayout from "../../../layouts/ToyboxLayout.astro"
 import "./style.css"
-import { categories } from "./stratagems"
+import { stratagems, categories } from "./stratagems"
 ---
 
 <ToyboxLayout
@@ -73,8 +73,7 @@ import { categories } from "./stratagems"
 		</details>
 	</div>
 
-	<script is:inline>
-		import { stratagems, categories } from "./stratagems.js"
+	<script is:inline define:vars={{stratagems, categories}} type="module">
 
 		const arrowContainer = document.getElementById("arrow-container")
 		const arrowTemplate = document.getElementById("arrow-template")
