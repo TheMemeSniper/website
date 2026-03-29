@@ -32,8 +32,10 @@ interface Props {
 	</head>
 	<body>
 		<Navbar />
-
-		<slot />
+		
+		<main id="main-content">
+			<slot />
+		</main>
 
 		<p id="footer-quote"></p>
 		<script src="../footer-quotes.js"></script>
