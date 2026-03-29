@@ -1,7 +1,7 @@
 var initialX = null
 var initialY = null
 var minSwipeDistance = 50
-window.direction = ""
+globalThis.direction = ""
 
 export function startTouch(e) {
 	e.preventDefault()
@@ -26,9 +26,9 @@ export function moveTouch(e) {
 	if (Math.abs(diffX) > Math.abs(diffY)) {
 		if (Math.abs(diffX) > minSwipeDistance) {
 			if (diffX > 0) {
-				window.direction = "ArrowLeft"
+				globalThis.direction = "ArrowLeft"
 			} else {
-				window.direction = "ArrowRight"
+				globalThis.direction = "ArrowRight"
 			}
 			initialX = null
 			initialY = null
@@ -36,15 +36,15 @@ export function moveTouch(e) {
 	} else {
 		if (Math.abs(diffY) > minSwipeDistance) {
 			if (diffY > 0) {
-				window.direction = "ArrowUp"
+				globalThis.direction = "ArrowUp"
 			} else {
-				window.direction = "ArrowDown"
+				globalThis.direction = "ArrowDown"
 			}
 			initialX = null
 			initialY = null
 		}
 	}
 }
-window.startTouch = startTouch
-window.moveTouch = moveTouch
-window.direction = direction
+globalThis.startTouch = startTouch
+globalThis.moveTouch = moveTouch
+globalThis.direction = direction
