@@ -1,8 +1,34 @@
 .stratagem-arrow {
-    width: 10%;
-    height: auto;
+	width: 10%;
+	height: auto;
 }
 
 .active {
-    color: var(--accent-color);
+	color: var(--accent-color);
+}
+
+#swipe-area {
+	width: 90vw;
+	height: 30vh;
+	background-color: var(--secondary-background-color);
+
+	/* https://css-irl.info/css-halftone-patterns/ */
+	background-image:
+		radial-gradient(
+			circle at center,
+			var(--subtext-color) 0.25rem,
+			transparent 0
+		),
+		radial-gradient(
+			circle at center,
+			var(--subtext-color) 0.25rem,
+			transparent 0
+		);
+	background-size: 1.3rem 1.3rem;
+	background-position:
+		0 0,
+		0.65rem 0.65rem;
+
+	border-radius: 5px;
+	border: 2px solid var(--accent-color);
 }

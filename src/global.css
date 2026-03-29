@@ -301,3 +301,14 @@ hr {
 	clip: rect(1px,1px,1px,1px);
 	padding: 0;
 }
+
+
+.center-flex {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.hide {
+	display: none !important;
+}

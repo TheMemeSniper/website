@@ -9,12 +9,16 @@ import { stratagems, categories } from "./stratagems"
 	description="toybox: clone of the helldivers 2 minigame"
 >
 	<p>use WASD or arrow keys</p>
-	<p>controller and touch support Maybe Possibly coming soon</p>
+	<p>controller support Maybe Possibly coming soon</p>
 	<img id="stratagem-icon" class="center" />
 
 	<h1 id="name-header">input to play</h1>
 
 	<div class="center" id="arrow-container"></div>
+
+	<div class="center-flex">
+		<div id="swipe-area" class="hide"></div>
+	</div>
 
 	<template id="arrow-template">
 		<svg
@@ -73,14 +77,16 @@ import { stratagems, categories } from "./stratagems"
 		</details>
 	</div>
 
-	<script is:inline define:vars={{stratagems, categories}} type="module">
+	<script src="./swipe.js"></script>
 
+	<script is:inline define:vars={{ stratagems, categories }} type="module">
 		const arrowContainer = document.getElementById("arrow-container")
 		const arrowTemplate = document.getElementById("arrow-template")
 		const nameHeader = document.getElementById("name-header")
 		const correctCounter = document.getElementById("correct-count")
 		const incorrectCounter = document.getElementById("incorrect-count")
 		const updateSetButton = document.getElementById("update-sets")
+		const swipeArea = document.querySelector("#swipe-area")
 
 		const audioBaseURL = "/audio/toybox/stratagem-hero/"
 		const inputSound = new Audio(audioBaseURL + "input.mp3")
@@ -156,7 +162,22 @@ import { stratagems, categories } from "./stratagems"
 						resolve(inputCoerced)
 					}
 				}
+
+				function onSwipeHandler(e) {
+					console.log(window.direction)
+					e.preventDefault()
+					const inputCoerced = inputToInputEnum(window.direction)
+					if (inputCoerced) {
+						swipeArea.removeEventListener("touchstart", startTouch)
+						swipeArea.removeEventListener("touchmove", onSwipeHandler)
+						resolve(inputCoerced)
+					}
+				}
+
 				document.addEventListener("keydown", onKeyHandler)
+				swipeArea.addEventListener("touchstart", startTouch, false)
+				swipeArea.addEventListener("touchmove", moveTouch, false)
+				swipeArea.addEventListener("touchend", onSwipeHandler, false)
 			})
 		}
 
@@ -199,7 +220,9 @@ import { stratagems, categories } from "./stratagems"
 				console.log(category, !categoryCheckbox?.checked)
 				if (!categoryCheckbox?.checked) continue
 
-				const checkboxes = document.querySelectorAll("." + category.replaceAll(" ", "-"))
+				const checkboxes = document.querySelectorAll(
+					"." + category.replaceAll(" ", "-"),
+				)
 				checkboxes.forEach((gemCheckbox) => {
 					if (gemCheckbox.checked) {
 						console.log(gemCheckbox.id)
@@ -215,6 +238,18 @@ import { stratagems, categories } from "./stratagems"
 		updateSetButton.onclick = () => {
 			updateStratagemList()
 			pickNextStratagem()
+		}
+
+		function isTouchDevice() {
+			return (
+				"ontouchstart" in window ||
+				navigator.maxTouchPoints > 0 ||
+				navigator.msMaxTouchPoints > 0
+			)
+		}
+
+		if (isTouchDevice()) {
+			swipeArea.classList.remove("hide");
 		}
 
 		// gam
