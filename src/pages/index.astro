@@ -14,11 +14,14 @@ const trinketGlob = import.meta.glob<{ default: ImageMetadata }>(
 )
 
 const trinkets = Object.fromEntries(
-	Object.entries(trinketGlob).map(([path]) => {
-		const filename = path.split("/").pop()?.split(".").shift()
-		return [filename, path]
-	}),
-)
+    await Promise.all(
+        Object.entries(trinketGlob).map(async ([path, module]) => {
+            const filename = path.split("/").pop()?.split(".").shift();
+            const { default: data } = await module(); 
+            return [filename, data.src];
+        })
+    )
+);
 ---
 
 <Layout title="k8's corner" description="Good lordd what is happenin in ther">
