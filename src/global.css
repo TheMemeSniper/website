@@ -36,6 +36,15 @@ body {
 	text-align: center;
 }
 
+@keyframes powerwash {
+	from {
+		background-color: var(--background-color);
+	}
+	to {
+		background-color: var(--bad-color);
+	}
+}
+
 a:link {
 	color: var(--text-color);
 }
@@ -311,4 +320,19 @@ hr {
 
 .hide {
 	display: none !important;
+}
+
+.column {
+	display: flex; 
+	flex-direction: column;
+	flex: none;
+	max-width: 20vw;
+}
+
+.column > * {
+	flex: none;
+}
+
+.powerwashing {
+	animation: powerwash 3s linear forwards;
 }

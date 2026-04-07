@@ -1,0 +1,78 @@
+---
+import ToyboxLayout from "../../../layouts/ToyboxLayout.astro"
+---
+
+<ToyboxLayout
+	title="k8's corner - toybox/control panel"
+	description="do some funky stuff to my website"
+>
+	<br />
+	<div
+		class="bad-border"
+		style="background-color: var(--tertiary-background-color);"
+	>
+		<h3>
+			some of these may cause <u>flashing lights</u> or <u
+				>make this website unusable</u
+			>
+		</h3>
+		<p>you can stop these effects by:</p>
+		<ul>
+			<li>holding ESC for 3 seconds when active</li>
+			<li>clearing site storage</li>
+		</ul>
+	</div>
+	<form class="center column" id="main">
+		<h1>Transformations</h1>
+		<input type="checkbox" id="spin-enable" name="spin" />
+		<label for="spin-enable">Spin</label>
+		<input
+			type="radio"
+			id="spin-clockwise"
+			name="spin-direction"
+			value="false"
+			checked
+		/>
+		<label for="spin-clockwise">Spin clockwise</label>
+		<input
+			type="radio"
+			id="spin-counterclockwise"
+			name="spin-direction"
+			value="true"
+		/>
+		<label for="spin-counterclockwise">Spin counterclockwise</label>
+		<input
+			type="number"
+			id="spin-speed"
+			placeholder="60"
+			min="0"
+			name="spin-speed"
+		/>
+		<label for="spin-speed">Spin speed (higher is slower)</label>
+		<hr />
+		<button type="submit" class="card center">OK</button>
+	</form>
+	<script is:inline>
+		const form = document.getElementById("main")
+
+		if (form) {
+			form.addEventListener("submit", (event) => {
+				event.preventDefault()
+				console.log(form.elements)
+				console.log()
+
+				const props = {
+					spin: {
+						enabled: form.elements["spin-enable"].checked,
+						direction: form.elements["spin-clockwise"].checked,
+						speed: parseInt(form.elements["spin-speed"].value) || 60,
+					},
+				}
+
+				console.log(props)
+				localStorage.setItem("fx", JSON.stringify(props))
+				location.reload()
+			})
+		}
+	</script>
+</ToyboxLayout>
