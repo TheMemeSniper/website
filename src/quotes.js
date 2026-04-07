@@ -152,9 +152,12 @@ const quotes = [
   "iOS fries be tasting so good ￼",
   "Nano is only rated IP21 please be careful",
   "私はホモ。💔",
-  "Have you ever playe Microsoft Jewel with your life on the line?",
+  "Have you ever played Microsoft Jewel with your life on the line?",
   "Hi Im Nano and if I have to make another fucking flexbox I'm going to put a Google engineer in a SAW trap",
   "I do not 'npm build'. I do not 'rollup'. I write the JavaScript and CSS. If I can't download a bundle, then I don't USE IT.",
+  "LARPING LARPING \ TEAMING TEAMING \ LARPING LARPING \ READING READING",
+  "Begin. Game over. Begin. Game over. Begin. Game over. Begin. Game over. ",
+  "Line. Triangle. Square. Pentagon. Hexagon. Excellent.",
   ...currentConditionalQuotes
 ]
 

@@ -9,19 +9,16 @@ import drew from "../images/buttons/drew.gif?url"
 import notfire from "../images/buttons/notfire.gif?url"
 import rabbithawk from "../images/buttons/rabbithawk256.png?url"
 
+const trinketGlob = import.meta.glob<{ default: ImageMetadata }>(
+	"/src/images/trinkets/*",
+)
 
-import akane from "../images/trinkets/akane.png?url"
-import arizona from "../images/trinkets/arizona.gif?url"
-import fedora from "../images/trinkets/fedora.gif?url"
-import graphene from "../images/trinkets/grapheneos.gif?url"
-import macintoshwks from "../images/trinkets/macintoshwks.gif?url"
-import miku from "../images/trinkets/miku.gif?url"
-import nano from "../images/trinkets/nano.gif?url"
-import vocaloid from "../images/trinkets/vocaloid.gif?url"
-import vscbutton from "../images/trinkets/vscbutton.gif?url"
-import yanknow from "../images/trinkets/yanknow.gif?url"
-import younggirl from "../images/trinkets/younggirl.png?url"
-
+const trinkets = Object.fromEntries(
+	Object.entries(trinketGlob).map(([path]) => {
+		const filename = path.split("/").pop()?.split(".").shift()
+		return [filename, path]
+	}),
+)
 ---
 
 <Layout title="k8's corner" description="Good lordd what is happenin in ther">
@@ -40,49 +37,55 @@ import younggirl from "../images/trinkets/younggirl.png?url"
 	</noscript>
 	<br />
 	<div>
-		<button class="card button" onclick="window.quoteReroll()">90% of gamblers</button>
+		<button class="card button" onclick="window.quoteReroll()"
+			>90% of gamblers</button
+		>
 	</div>
-	<h3 class="bio">i'm kaitlin (she/her)! or katie. or kait. or nano. i like a lot of names! i like playing video games and funny things. i do some programming when i'm bored and have problems
-		i mostly focus on client-only web tools/games nowadays. 
+	<h3 class="bio">
+		i'm kaitlin (she/her)! or katie. or kait. or nano. i like a lot of names! i
+		like playing video games and funny things. i do some programming when i'm
+		bored and have problems i mostly focus on client-only web tools/games
+		nowadays.
 	</h3>
 	<h3 class="bio">
-		i'm a big nerd and love mostly Japanese stuff. i'm a big fan of nichijou in particular, and nano shinonome from that series. Watch it!!
+		i'm a big nerd and love mostly Japanese stuff. i'm a big fan of nichijou in
+		particular, and nano shinonome from that series. Watch it!!
 	</h3>
 	<h2>Things i like in no particular order:</h2>
 	<div class="center">
-	<ul>
-		<li>nichijou</li>
-		<li>bocchi the rock</li>
-		<li>jujutsu kaisen</li>
-		<li>vocaloid</li>
-		<li>j-pop and j-rock</li>
-		<li>nightcord at 25:00</li>
-		<li>nano shinonome</li>
-		<li>3d printing</li>
-		<li>html</li>
-		<li>cool software</li>
-		<li>minecraft</li>
-		<li>cybersec</li>
-		<li>sysops</li>
-		<li>linux</li>
-		<li>gamedev</li>
-		<li>sleeping</li>
-		<li>shooter games</li>
-		<li>cute things (i'm a total sucker for them)</li>
-		<li>cactus farms</li>
-		<li>reading really long articles</li>
-		<li>giving up on projects after a week</li>
-	</ul>
+		<ul>
+			<li>nichijou</li>
+			<li>bocchi the rock</li>
+			<li>jujutsu kaisen</li>
+			<li>vocaloid</li>
+			<li>j-pop and j-rock</li>
+			<li>nightcord at 25:00</li>
+			<li>nano shinonome</li>
+			<li>3d printing</li>
+			<li>html</li>
+			<li>cool software</li>
+			<li>minecraft</li>
+			<li>cybersec</li>
+			<li>sysops</li>
+			<li>linux</li>
+			<li>gamedev</li>
+			<li>sleeping</li>
+			<li>shooter games</li>
+			<li>cute things (i'm a total sucker for them)</li>
+			<li>cactus farms</li>
+			<li>reading really long articles</li>
+			<li>giving up on projects after a week</li>
+		</ul>
 	</div>
 	<h2>names i like (ever expanding)</h2>
 	<div class="center">
-	<ul>
-		<li>kaitlin</li>
-		<li>katie</li>
-		<li>kait</li>
-		<li>k8</li>
-		<li>nano</li>
-	</ul>
+		<ul>
+			<li>kaitlin</li>
+			<li>katie</li>
+			<li>kait</li>
+			<li>k8</li>
+			<li>nano</li>
+		</ul>
 	</div>
 	<br />
 	<h1>Some places</h1>
@@ -90,11 +93,15 @@ import younggirl from "../images/trinkets/younggirl.png?url"
 		<a href="https://wetdry.world/@thememesniper" rel="me" class="card"
 			>Mastodon</a
 		>
-		<a href="https://bsky.app/profile/did:plc:5wh3hjau5fsq65evluglwduk" rel="me" class="card"
-			>Bluesky</a
+		<a
+			href="https://bsky.app/profile/did:plc:5wh3hjau5fsq65evluglwduk"
+			rel="me"
+			class="card">Bluesky</a
 		>
-		<a href="https://bsky.app/profile/did:plc:4x7b5qojaruzklji4nerhjlc" rel="me" class="card"
-			>Bluesky (Fediverse bridge)</a
+		<a
+			href="https://bsky.app/profile/did:plc:4x7b5qojaruzklji4nerhjlc"
+			rel="me"
+			class="card">Bluesky (Fediverse bridge)</a
 		>
 		<a href="https://github.com/TheMemeSniper/website" rel="me" class="card"
 			>Source?</a
@@ -116,12 +123,23 @@ import younggirl from "../images/trinkets/younggirl.png?url"
 			name="-millions wetdry"
 		/>
 		<TestimonyItem quote="d1 game developer" name="-bronzefeathers wetdry" />
-		<TestimonyItem quote="my greatest condolences for being the protagonist of an xkcd" name="-boxy wetdry" />
-		<TestimonyItem quote="you're putting too much effort into our table and it's starting to scare me" name="-rabbithawk256 weddy" />
-		<TestimonyItem quote="stuzz died for her cactus farms" name="-limineow jouse" />
-		<TestimonyItem quote="Hey, look! It's the annoying kid who dies all the time!" name="- The Snatcher from the hit indie game A Hat in Time" />
+		<TestimonyItem
+			quote="my greatest condolences for being the protagonist of an xkcd"
+			name="-boxy wetdry"
+		/>
+		<TestimonyItem
+			quote="you're putting too much effort into our table and it's starting to scare me"
+			name="-rabbithawk256 weddy"
+		/>
+		<TestimonyItem
+			quote="stuzz died for her cactus farms"
+			name="-limineow jouse"
+		/>
+		<TestimonyItem
+			quote="Hey, look! It's the annoying kid who dies all the time!"
+			name="- The Snatcher from the hit indie game A Hat in Time"
+		/>
 	</div>
-
 
 	<h1>Niche Button/Media(s)</h1>
 	<div
@@ -133,40 +151,198 @@ import younggirl from "../images/trinkets/younggirl.png?url"
         flex-wrap: wrap;
       "
 	>
-		<EE31 href="https://thememesniper.dev" image="/images/88x31.png" image_alt="k8's corner"/>
-		<EE31 href="https://velzie.rip" image="https://velzie.rip/88x31.png" image_alt="velzie"/>
+		<EE31
+			href="https://thememesniper.dev"
+			image="/images/88x31.png"
+			image_alt="k8's corner"
+		/>
+		<EE31
+			href="https://velzie.rip"
+			image="https://velzie.rip/88x31.png"
+			image_alt="velzie"
+		/>
 		<EE31 href="https://jack.cab" image={jack} image_alt="Jack.cab" />
-		<EE31 href="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/" 
+		<EE31
+			href="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/"
 			image="https://760ceb3b9c0ba4872cadf3ce35a7a494.neocities.org/people/760ceb3b9c0ba4872cadf3ce35a7a494.png"
 			image_alt="760ceb3b9c0ba4872cadf3ce35a7a494's website"
 		/>
 		<EE31 href="https://split.pet/" image={split} image_alt="split's website" />
-		<EE31 href="https://aleteoryx.me/" image="https://aleteoryx.me/common/badges/ame.gif" image_alt="aleteoryx.me"/>
-		<EE31 href="https://byemc.xyz" image="https://byemc.xyz/assets/buttons/byebutton.gif" image_alt="byespace"/>
-		<EE31 href="https://drewsh.com" image={drew} image_alt="drew"/>
-		<EE31 href="https://midnaw.neocities.org/" image="https://midnaw.neocities.org/buttons/midna.png" image_alt="midna"/>
-		<EE31 href="https://gagingo.ing/" image="https://gagingo.ing/img/88x31.png" image_alt="gagingo ing"/>
-		<EE31 href="https://notfire.cc/home.html" image={notfire} image_alt="notfire"/>
-		<EE31 href="https://prefetcher.net/" image="https://prefetcher.net/88x31.png" image_alt="prefetcher's den" />
-		<EE31 href="https://rabbithawk256.dev?ref=button" image={rabbithawk} image_alt="rabbithawk2565" />
+		<EE31
+			href="https://aleteoryx.me/"
+			image="https://aleteoryx.me/common/badges/ame.gif"
+			image_alt="aleteoryx.me"
+		/>
+		<EE31
+			href="https://byemc.xyz"
+			image="https://byemc.xyz/assets/buttons/byebutton.gif"
+			image_alt="byespace"
+		/>
+		<EE31 href="https://drewsh.com" image={drew} image_alt="drew" />
+		<EE31
+			href="https://midnaw.neocities.org/"
+			image="https://midnaw.neocities.org/buttons/midna.png"
+			image_alt="midna"
+		/>
+		<EE31
+			href="https://gagingo.ing/"
+			image="https://gagingo.ing/img/88x31.png"
+			image_alt="gagingo ing"
+		/>
+		<EE31
+			href="https://notfire.cc/home.html"
+			image={notfire}
+			image_alt="notfire"
+		/>
+		<EE31
+			href="https://prefetcher.net/"
+			image="https://prefetcher.net/88x31.png"
+			image_alt="prefetcher's den"
+		/>
+		<EE31
+			href="https://rabbithawk256.dev?ref=button"
+			image={rabbithawk}
+			image_alt="rabbithawk2565"
+		/>
 	</div>
 	<p>
-		friends: i want to collect trinkets. if you want to help me please send me a message wherever you know me with your 88x31, your testimony, and/or a random 88x31 you think i'd like for the section below
+		friends: i want to collect trinkets. if you want to help me please send me a
+		message wherever you know me with your 88x31, your testimony, and/or a
+		random 88x31 you think i'd like for the section below
 	</p>
 	<h1>Trinkets</h1>
-	<div>
-		<EE31 image={akane} image_alt="Seyana" href="https://www.youtube.com/watch?v=OVuYIMa5XBw"/>
-		<EE31 image={arizona} image_alt="AriZona Green Tea" href="https://drinkarizona.com/collections/teas/products/green-tea-20oz-tallboy"/>
-		<EE31 image={fedora} image_alt="Fedora" href="https://www.fedoraproject.org/"/>
-		<EE31 image={graphene} image_alt="GrapheneOS" href="https://grapheneos.org/"/>
-		<EE31 image={macintoshwks} image_alt="Macintosh: It Just Works" href="https://www.apple.com/mac/"/>
-		<EE31 image={miku} image_alt="This website is Miku approved" href="https://www.youtube.com/watch?v=bkY_3vXuGBA"/>
-		<EE31 image={nano} image_alt="This website was made with NANO" href="https://nichijou.wiki.gg/wiki/Nano_Shinonome"/>
-		<EE31 image={vocaloid} image_alt="Vocaloid NOW!" href="https://www.vocaloid.com/en/"/>
-		<EE31 image={vscbutton} image_alt="Visual Studio Code" href="https://code.visualstudio.com/"/>
-		<EE31 image={yanknow} image_alt="Yankovic NOW!" href="https://www.youtube.com/watch?v=DFI6cV9slfI"/>
-		<EE31 image={younggirl} image_alt="Young Girl A" href="https://www.youtube.com/watch?v=AqI97zHMoQw"/>
-		
+	<div class="center">
+		<EE31
+			image={trinkets["akane"]}
+			image_alt="Seyana"
+			href="https://www.youtube.com/watch?v=OVuYIMa5XBw"
+		/>
+		<EE31
+			image={trinkets["arizona"]}
+			image_alt="AriZona Green Tea"
+			href="https://drinkarizona.com/collections/teas/products/green-tea-20oz-tallboy"
+		/>
+		<EE31
+			image={trinkets["astro"]}
+			image_alt="Astro"
+			href="https://astro.build"
+		/>
+		<EE31
+			image={trinkets["atproto"]}
+			image_alt="ATProtocol Now!"
+			href="https://atproto.com"
+		/>
+		<EE31
+			image={trinkets["blender"]}
+			image_alt="Blender"
+			href="https://blender.org"
+		/>
+		<EE31
+			image={trinkets["caddy"]}
+			image_alt="Caddy"
+			href="https://caddyserver.com"
+		/>
+		<EE31
+			image={trinkets["chrome"]}
+			image_alt="Google Chrome"
+			href="https://www.google.com/chrome"
+		/>
+		<EE31
+			image={trinkets["debian"]}
+			image_alt="Debian GNU/Linux"
+			href="https://debian.org"
+		/>
+		<EE31
+			image={trinkets["fedora"]}
+			image_alt="Fedora"
+			href="https://www.fedoraproject.org/"
+		/>
+		<EE31
+			image={trinkets["firtnite"]}
+			image_alt="Firtnite"
+			href="https://wetdry.world/@TimSweeneyEpic"
+		/>
+		<EE31
+			image={trinkets["github"]}
+			image_alt="GitHub"
+			href="https://github.com"
+		/>
+		<EE31
+			image={trinkets["grapheneos"]}
+			image_alt="GrapheneOS"
+			href="https://grapheneos.org/"
+		/>
+		<EE31 image={trinkets["kde"]} image_alt="KDE" href="https://kde.org" />
+		<EE31
+			image={trinkets["krita"]}
+			image_alt="Krita"
+			href="https://krita.org/en/"
+		/>
+		<EE31
+			image={trinkets["linux"]}
+			image_alt="Linux"
+			href="https://kernel.org"
+		/>
+		<EE31
+			image={trinkets["macintoshwks"]}
+			image_alt="Macintosh: It Just Works"
+			href="https://www.apple.com/mac/"
+		/>
+		<EE31
+			image={trinkets["miku"]}
+			image_alt="This website is Miku approved"
+			href="https://www.youtube.com/watch?v=bkY_3vXuGBA"
+		/>
+		<EE31
+			image={trinkets["nano"]}
+			image_alt="This website was made with NANO"
+			href="https://nichijou.wiki.gg/wiki/Nano_Shinonome"
+		/>
+		<EE31
+			image={trinkets["nixos"]}
+			image_alt="NixOS"
+			href="https://nixos.org"
+		/>
+		<EE31
+			image={trinkets["servo"]}
+			image_alt="Servo"
+			href="https://servo.org"
+		/>
+		<EE31
+			image={trinkets["ublock"]}
+			image_alt="uBlock Origin"
+			href="https://ublockorigin.com/"
+		/>
+		<EE31
+			image={trinkets["vocaloid"]}
+			image_alt="Vocaloid NOW!"
+			href="https://www.vocaloid.com/en/"
+		/>
+		<EE31
+			image={trinkets["vscbutton"]}
+			image_alt="Visual Studio Code"
+			href="https://code.visualstudio.com/"
+		/>
+		<EE31
+			image={trinkets["wetdry"]}
+			image_alt="wetdry.world"
+			href="https://wetdry.world/"
+		/>
+		<EE31
+			image={trinkets["wikipedia"]}
+			image_alt="Wikipedia"
+			href="https://wikipedia.org/"
+		/>
+		<EE31
+			image={trinkets["yanknow"]}
+			image_alt="Yankovic NOW!"
+			href="https://www.youtube.com/watch?v=DFI6cV9slfI"
+		/>
+		<EE31
+			image={trinkets["younggirl"]}
+			image_alt="Young Girl A"
+			href="https://www.youtube.com/watch?v=AqI97zHMoQw"
+		/>
 	</div>
 	<script src="../quotes.js"></script>
 	<script src="../pfp.js"></script>
