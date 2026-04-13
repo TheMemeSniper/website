@@ -14,14 +14,14 @@ const trinketGlob = import.meta.glob<{ default: ImageMetadata }>(
 )
 
 const trinkets = Object.fromEntries(
-    await Promise.all(
-        Object.entries(trinketGlob).map(async ([path, module]) => {
-            const filename = path.split("/").pop()?.split(".").shift();
-            const { default: data } = await module(); 
-            return [filename, data.src];
-        })
-    )
-);
+	await Promise.all(
+		Object.entries(trinketGlob).map(async ([path, module]) => {
+			const filename = path.split("/").pop()?.split(".").shift()
+			const { default: data } = await module()
+			return [filename, data.src]
+		}),
+	),
+)
 ---
 
 <Layout title="k8's corner" description="Good lordd what is happenin in ther">
@@ -251,6 +251,11 @@ const trinkets = Object.fromEntries(
 			href="https://www.google.com/chrome"
 		/>
 		<EE31
+			image={trinkets["debatably-valid-rss"]}
+			image_alt="(DEBATABLY) Valid RSS"
+			href="https://www.rssboard.org/rss-specification"
+		/>
+		<EE31
 			image={trinkets["debian"]}
 			image_alt="Debian GNU/Linux"
 			href="https://debian.org"
@@ -290,6 +295,11 @@ const trinkets = Object.fromEntries(
 			image={trinkets["macintoshwks"]}
 			image_alt="Macintosh: It Just Works"
 			href="https://www.apple.com/mac/"
+		/>
+		<EE31
+			image={trinkets["miku-diva"]}
+			image_alt="Virtual Diva"
+			href="https://www.youtube.com/watch?v=bncdfyVBmI8"
 		/>
 		<EE31
 			image={trinkets["miku"]}
