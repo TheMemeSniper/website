@@ -15,7 +15,7 @@ if (avatar_source.startsWith("<a")) {
 		sourceTextObj.textContent = "error while fetching mastodon profile information"
 		throw new Error(".search() failed on avatar_source")
 	}
-	avatar_source = avatar_source.substring(index + 6, avatar_source.indexOf('"', index + 6));
+	avatar_source = avatar_source.substring(index + 6, avatar_source.indexOf('"', index + 6)).replace(/&amp;/gm, "&");
 
 	var a = document.createElement('a');
 	a.innerText = avatar_source
