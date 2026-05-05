@@ -22,12 +22,12 @@ export const stratagems = [
 		sequence: "DLRUD",
 	},
 	{
-		name: "GR-8 Recoilless Rifle",
-		sequence: "DLRRL",
-	},
-	{
 		name: "GL-21 Grenade Launcher",
 		sequence: "DLULD",
+	},
+	{
+		name: "GR-8 Recoilless Rifle",
+		sequence: "DLRRL",
 	},
 	{
 		name: "FLAM-40 Flamethrower",
@@ -78,8 +78,20 @@ export const stratagems = [
 		sequence: "DLULR",
 	},
 	{
+		name: "MGX-42 Bullet Storm",
+		sequence: "DLDRUL",
+	},
+	{
 		name: "S-11 Speargun",
 		sequence: "DRDLUR",
+	},
+	{
+		name: "CQC-9 Defoliation Tool",
+		sequence: "DLRRD",
+	},
+	{
+		name: "TX-41 Sterilizer",
+		sequence: "DLUDL",
 	},
 	{
 		name: "EAT-700 Expendable Napalm",
@@ -94,16 +106,12 @@ export const stratagems = [
 		sequence: "DRULR",
 	},
 	{
-		name: "CQC-9 Defoliation Tool",
-		sequence: "DLRRD",
-	},
-	{
-		name: "TX-41 Sterilizer",
-		sequence: "DLUDL",
-	},
-	{
 		name: "GL-28 Belt-Fed Grenade Launcher",
 		sequence: "DLULUU",
+	},
+	{
+		name: "B/MD C4 Pack",
+		sequence: "DRUURU",
 	},
 	{
 		name: "MS-11 Solo Silo",
@@ -116,10 +124,6 @@ export const stratagems = [
 	{
 		name: "M-1000 Maxigun",
 		sequence: "DLRDUU",
-	},
-	{
-		name: "B/MD C4 Pack",
-		sequence: "DRUURU",
 	},
 	{
 		name: "CQC-1 One True Flag",
@@ -347,7 +351,23 @@ export const stratagems = [
 		name: "TD-220 Bastion MK XVI",
 		sequence: "LDRDLDUDU",
 	},
+	{
+		name: "EXO-55 Breakthrough Exosuit",
+		sequence: "LDRLRDU",
+	},
+	{
+		name: "EXO-51 Lumberer Exosuit",
+		sequence: "LDRURLU",
+	},
 	// Ship Stratagems
+	{
+		name: "Reinforce",
+		sequence: "UDRLU",
+	},
+	{
+		name: "Resupply",
+		sequence: "DDUR",
+	},
 	{
 		name: "SoS Beacon",
 		sequence: "UDRU",
@@ -360,15 +380,31 @@ export const stratagems = [
 		name: "Call In Super Destroyer",
 		sequence: "UUDDLRLR",
 	},
-	{
-		name: "Reinforce",
-		sequence: "UDRLU",
-	},
-	{
-		name: "Resupply",
-		sequence: "DDUR",
-	},
 	// Objective Stratagems
+	{
+		name: "NUX-223 Hellbomb",
+		sequence: "DULDURDU",
+	},
+	{
+		name: "Upload Data",
+		sequence: "LRUUU",
+	},
+	{
+		name: "SSSD Delivery",
+		sequence: "DDDDDUU",
+	},
+	{
+		name: "Super Earth Flag",
+		sequence: "DUDU",
+	},
+	{
+		name: "Seismic Probe",
+		sequence: "UULRDD",
+	},
+	{
+		name: "Prospecting Drill",
+		sequence: "DDLRDD",
+	},
 	{
 		name: "Dark Fluid Vessel",
 		sequence: "ULRDUU",
@@ -382,40 +418,16 @@ export const stratagems = [
 		sequence: "LUDRDD",
 	},
 	{
-		name: "Seismic Probe",
-		sequence: "UULRDD",
-	},
-	{
-		name: "Super Earth Flag",
-		sequence: "DUDU",
-	},
-	{
-		name: "Prospecting Drill",
-		sequence: "DDLRDD",
-	},
-	{
-		name: "SSSD Delivery",
-		sequence: "DDDDDUU",
-	},
-	{
-		name: "SEAF Artillery",
-		sequence: "RUUD",
-	},
-	{
-		name: "Upload Data",
-		sequence: "LRUUU",
-	},
-	{
 		name: "Cargo Container",
 		sequence: "UUDDRD",
 	},
 	{
-		name: "NUX-223 Hellbomb",
-		sequence: "DULDURDU",
-	},
-	{
 		name: "Reinforcement Pods",
 		sequence: "LRUUU",
+	},
+	{
+		name: "SEAF Artillery",
+		sequence: "RUUD",
 	},
 	// Other Stratagems
 	{
@@ -431,8 +443,8 @@ export const categories = {
 		"M-105 Stalwart",
 		"LAS-98 Laser Cannon",
 		"APW-1 Anti-Materiel Rifle",
-		"GR-8 Recoilless Rifle",
 		"GL-21 Grenade Launcher",
+		"GR-8 Recoilless Rifle",
 		"FLAM-40 Flamethrower",
 		"MG-206 Heavy Machine Gun",
 		"AC-8 Autocannon",
@@ -445,17 +457,18 @@ export const categories = {
 		"StA-X3 W.A.S.P. Launcher",
 		"CQC-20 Breaching Hammer",
 		"PLAS-45 Epoch",
+		"MGX-42 Bullet Storm",
 		"S-11 Speargun",
+		"CQC-9 Defoliation Tool",
+		"TX-41 Sterilizer",
 		"EAT-700 Expendable Napalm",
 		"EAT-411 Leveller",
 		"GL-52 De-Escalator",
-		"CQC-9 Defoliation Tool",
-		"TX-41 Sterilizer",
 		"GL-28 Belt-Fed Grenade Launcher",
+		"B/MD C4 Pack",
 		"MS-11 Solo Silo",
 		"B/FLAM-80 Cremator",
 		"M-1000 Maxigun",
-		"B/MD C4 Pack",
 		"CQC-1 One True Flag",
 	],
 	"Orbital Strikes": [
@@ -523,27 +536,29 @@ export const categories = {
 		"EXO-49 Emancipator Exosuit",
 		"M-102 Fast Recon Vehicle",
 		"TD-220 Bastion MK XVI",
+		"EXO-55 Breakthrough Exosuit",
+		"EXO-51 Lumberer Exosuit",
 	],
 	Ship: [
+		"Reinforce",
+		"Resupply",
 		"SoS Beacon",
 		"Eagle Rearm",
 		"Call In Super Destroyer",
-		"Reinforce",
-		"Resupply",
 	],
 	Objective: [
+		"NUX-223 Hellbomb",
+		"Upload Data",
+		"SSSD Delivery",
+		"Super Earth Flag",
+		"Seismic Probe",
+		"Prospecting Drill",
 		"Dark Fluid Vessel",
 		"Tectonic Drill",
 		"Hive Breaker Drill",
-		"Seismic Probe",
-		"Super Earth Flag",
-		"Prospecting Drill",
-		"SSSD Delivery",
-		"SEAF Artillery",
-		"Upload Data",
 		"Cargo Container",
-		"NUX-223 Hellbomb",
 		"Reinforcement Pods",
+		"SEAF Artillery",
 	],
 	Other: ["Orbital Illumination Flare"],
 }
