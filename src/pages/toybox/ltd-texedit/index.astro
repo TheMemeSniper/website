@@ -1,0 +1,244 @@
+---
+import ToyboxLayout from "../../../layouts/ToyboxLayout.astro"
+---
+
+<ToyboxLayout
+	title="k8's corner - toybox/ltd texture editor"
+	description="edit ugc textures from tomodachi life: living the dream"
+>
+	<p>
+		so far it can only load the image Lmfao I'll add the actual editing part
+		later maybe possibly 😭
+	</p>
+	<div
+		style="display: flex; justify-content: center; align-items: center; padding: 1em;"
+	>
+		<canvas
+			id="texture-canvas"
+			style="size: 512px !important; height: 512px !important; aspect-ratio: 1/1; image-rendering: pixelated; display: block;"
+			class="border"
+		>
+		</canvas>
+	</div>
+
+	<p>DOOHICKEY STATUS: <span id="status">Feed me canvasesssss</span></p>
+
+	<p>upload a .canvas.zs file here</p>
+	<input type="file" id="file-input" accept=".zs" />
+	<button class="card" id="reload">Reload image</button>
+	<form>
+		<label for="swizzle-mode">Swizzle mode (4 for full canvases)</label>
+		<input
+			type="range"
+			id="swizzle-mode"
+			name="swizzle-mode"
+			min="0"
+			max="10"
+			value="4"
+			oninput="this.nextElementSibling.value = this.value"
+		/>
+		<output>4</output>
+
+		<br />
+
+		<label for="width">Width</label>
+		<input
+			type="number"
+			id="width"
+			name="width"
+			min="2"
+			max="1024"
+			value="256"
+			placeholder="256"
+		/>
+
+		<br />
+
+		<label for="height">Height</label>
+		<input
+			type="number"
+			id="height"
+			name="height"
+			min="2"
+			max="1024"
+			value="256"
+			placeholder="256"
+		/>
+		<br />
+
+		<label for="width">Block Width</label>
+		<input
+			type="number"
+			id="block-width"
+			name="block-width"
+			min="1"
+			max="1024"
+			value="1"
+			placeholder="1"
+		/>
+
+		<br />
+
+		<label for="height">Block Height</label>
+		<input
+			type="number"
+			id="block-height"
+			name="block-height"
+			min="1"
+			max="1024"
+			value="1"
+			placeholder="1"
+		/>
+		<br />
+
+		<label for="height">Bytes per block</label>
+		<input
+			type="number"
+			id="bytes-per-block"
+			name="bytes-per-block"
+			min="1"
+			value="4"
+			placeholder="4"
+		/>
+		<br />
+		<button class="card" type="submit">OK</button>
+	</form>
+
+	<h1>general info about this tool</h1>
+	<h3><span>.canvas.zs</span> format</h3>
+	<p>
+		tomodachi life saves UGC drawings in a .canvas file compressed with
+		zstandard. decompressing the file will yield the 256x256 canvas, which is
+		just 65536 bytes representing RGBA pixels. however, the game "swizzles" this
+		canvas, which is to rearrange it into a format that's more performant on the
+		switch's GPU.
+	</p>
+	<p>
+		in order to assemble an actual image, we need to reassemble the image from
+		the swizzled format. <a href="https://github.com/Aclios/pyswizzle"
+			>pyswizzle</a
+		> implements all the logic for this, and also includes an additional mode for
+		swizzled graphics from PS4 games. check it out!
+	</p>
+	<p>
+		pyswizzle was partially reimplemented in javascript, but only limited to the
+		scope of the switch's swizzling for this tool.
+	</p>
+	<h3>organization of the UGC drawings</h3>
+	<p>
+		UGC drawings are saved in the order they're created, and separated into
+		categories by filename.
+	</p>
+	<p>
+		they take the format <span>Ugc[category][num].canvas.zs</span>, where <span
+			>[category]</span
+		> is the type of the item, such as <span>Food</span> for food or <span
+			>Goods</span
+		> for treasures. <span>[num]</span> is the order of its creation, starting from
+		<span>000</span> and incrementing by 1 until the cap of the item type is reached.
+	</p>
+	<p>
+		i'm not quite sure what the <span>.ugctex</span> files do, but they seem to be
+		something to do with lighting?
+	</p>
+
+	<hr />
+
+	<p>
+		"Tomodachi Life" is a registered trademark of Nintendo Co., Ltd, which is
+		not affiliated with, and does not endorse, this tool or website.
+	</p>
+
+	<p>
+		Based on the work of Aclios' <a href="https://github.com/Aclios/pyswizzle"
+			>pyswizzle</a
+		>
+	</p>
+
+	<script>
+		// @ts-nocheck
+		import * as fzstd from "fzstd"
+		import BytesDeswizzler from "./swizzler.js"
+
+		const canvas = document.getElementById("texture-canvas")
+		const uploader = document.getElementById("file-input")
+		const ctx = canvas.getContext("2d")
+		const status = document.getElementById("status")
+
+		var width = 256
+		var height = 256
+		var blockSize = [1, 1]
+		var bytesPerBlock = 4
+		var swizzleMode = 4
+
+		let lastCanvas = undefined
+
+		const form = document.querySelector("form")
+
+		if (form) {
+			form.addEventListener("submit", (event) => {
+				event.preventDefault()
+				console.log(form.elements)
+				width = form.elements["width"].value
+				height = form.elements["height"].value
+				blockSize = [
+					form.elements["block-width"].value,
+					form.elements["block-height"].value,
+				]
+				bytesPerBlock = form.elements["bytes-per-block"].value
+				swizzleMode = form.elements["swizzle-mode"].value
+                status.innerText = "Reconfigured"
+			})
+		}
+
+		function reloadCanvas() {
+			try {
+				status.innerText = "Reloading canvas"
+				loadCanvas(lastCanvas)
+			} catch (e) {
+				console.error("Reloading canvas failed:", e.message)
+				status.innerText = "Reloading canvas failed: " + e.message
+			}
+		}
+
+		function loadCanvas(decompressedBytes) {
+			canvas.width = width
+			canvas.height = height
+			status.innerText = "Deswizzling"
+			const deswizzler = new BytesDeswizzler(
+				decompressedBytes,
+				[width, height],
+				blockSize,
+				bytesPerBlock,
+				swizzleMode,
+			)
+
+			const deswizzledRaw = deswizzler.deswizzle()
+
+			// Final render
+			status.innerText = "Drawing"
+			const clampedArray = new Uint8ClampedArray(deswizzledRaw)
+			const imageData = new ImageData(clampedArray, width, height)
+			ctx.putImageData(imageData, 0, 0)
+			status.innerText = "Done!"
+		}
+
+		uploader.addEventListener("change", async (event) => {
+			const file = event.target.files[0]
+			if (!file) return
+			try {
+				status.innerText = "Reading in file"
+				const buffer = await file.arrayBuffer()
+				status.innerText = "Decompressing canvas"
+				const decompressed = fzstd.decompress(new Uint8Array(buffer))
+				lastCanvas = decompressed
+				loadCanvas(decompressed)
+			} catch (e) {
+				console.error("Loading canvas failed:", e.message)
+				status.innerText = "Loading canvas failed: " + e.message
+			}
+		})
+
+        document.getElementById("reload").onclick = reloadCanvas
+	</script>
+</ToyboxLayout>
