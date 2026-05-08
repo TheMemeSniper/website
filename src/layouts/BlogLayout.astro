@@ -5,6 +5,7 @@ import { getImage } from "astro:assets"
 import type { CollectionEntry } from "astro:content";
 import icon from "../../public/icon.png";
 import Navbar from "../components/navbar.astro";
+import Font from "astro/components/Font.astro";
 const favicon = await getImage({
 	src: icon,
 	width: 32,
@@ -31,6 +32,7 @@ const { metadata } = Astro.props;
 		<meta name="fediverse:creator" content="@thememesniper@wetdry.world">
 		<link rel="icon" href={favicon.src} />
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+		<Font cssVariable="--font-mono" />
 	</head>
 	<body>
 		<Navbar />

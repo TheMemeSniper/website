@@ -3,6 +3,7 @@ import "../global.css"
 import { getImage } from "astro:assets"
 import icon from "../../public/icon.png";
 import Navbar from "../components/navbar.astro";
+import Font from "astro/components/Font.astro";
 const favicon = await getImage({
 	src: icon,
 	width: 32,
@@ -29,6 +30,7 @@ interface Props {
 		<meta content="#F5A9B8" name="theme-color" />
 		<link rel="icon" href={favicon.src} />
 		<Fragment set:html={Astro.props.additionalMetaTags} />
+		<Font cssVariable="--font-mono" />
 	</head>
 	<body>
 		<Navbar />
