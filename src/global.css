@@ -165,6 +165,8 @@ button {
 	display: flex;
 	align-items: center;
 	gap: 1%;
+	z-index: 2763;
+	position: relative;
 }
 
 .navbar li {
@@ -309,10 +311,9 @@ hr {
 .screenreader-support:not(:focus) {
 	position: absolute;
 	overflow: hidden;
-	clip: rect(1px,1px,1px,1px);
+	clip: rect(1px, 1px, 1px, 1px);
 	padding: 0;
 }
-
 
 .center-flex {
 	display: flex;
@@ -325,7 +326,7 @@ hr {
 }
 
 .column {
-	display: flex; 
+	display: flex;
 	flex-direction: column;
 	flex: none;
 	max-width: 20vw;
@@ -337,4 +338,67 @@ hr {
 
 .powerwashing {
 	animation: powerwash 3s linear forwards;
+}
+
+.blur-background {
+	background: color-mix(in srgb, var(--background-color), transparent 90%);
+	border-color: color-mix(
+		in srgb,
+		var(--tertiary-background-color),
+		transparent 90%
+	);
+	backdrop-filter: blur(40px);
+	transition: all 0.5s ease-in-out;
+}
+
+.blur-background > li > a {
+	color: transparent;
+	transition: all 0.5s ease-in-out;
+}
+
+.blur-background:hover > li > a {
+	color: var(--text-color);
+}
+
+.blur-background > li > a > img {
+	opacity: 0.9;
+	transition: all 0.5s ease-in-out;
+}
+
+.blur-background:hover > li > a > img {
+	opacity: 1;
+}
+
+.blur-background:hover {
+	backdrop-filter: none;
+	background: var(--background-color);
+	color: var(--text-color);
+}
+
+input[type="file"]::file-selector-button {
+	background-color: var(--secondary-background-color);
+	color: var(--text-color);
+	border-color: var(--accent-color);
+	width: fit-content !important;
+	cursor: pointer;
+	padding: 1em;
+	border-radius: 12px;
+	border-style: solid;
+}
+
+input[type="file"]::file-selector-button:hover {
+	background-color: var(--tertiary-background-color);
+}
+
+input[type="file"]::file-selector-button:active {
+	background-color: var(--active-background-color);
+}
+
+span {
+	background-color: var(--text-color);
+	color: var(--background-color);
+	padding: 2px;
+	margin: 2px;
+	border-radius: 4px;
+	font-family: var(--font-mono);
 }
