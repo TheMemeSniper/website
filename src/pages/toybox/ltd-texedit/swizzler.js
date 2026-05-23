@@ -25,7 +25,7 @@
 	SOFTWARE.
 */
 
-export default class BytesDeswizzle {
+class BytesDeswizzle {
 	constructor(data, im_size, block_size, bytes_per_block, swizzle_mode = null) {
 		this.data = new Uint8Array(data)
 		const datasize = this.data.length
@@ -168,3 +168,148 @@ export default class BytesDeswizzle {
 		return deswizzled_data
 	}
 }
+class BytesSwizzle {
+	constructor(data, imSize, blockSize, bytesPerBlock, swizzleMode = null) {
+		this.data = new Uint8Array(data)
+		const datasize = this.data.length
+		const [imWidth, imHeight] = imSize
+		const [blockWidth, blockHeight] = blockSize
+
+		const expectedDataSize =
+			Math.floor((imWidth * imHeight) / (blockWidth * blockHeight)) *
+			bytesPerBlock
+
+		if (expectedDataSize !== datasize) {
+			throw new Error(
+				`Invalid data size.\nExpected datasize: ${expectedDataSize}\nActual datasize: ${datasize}`,
+			)
+		}
+
+		let tileDatasize, tileWidth, tileHeight
+
+		if (swizzleMode === null) {
+			throw new Error(`Swizzle mode required`)
+		}
+		tileDatasize = 512 * 2 ** swizzleMode
+		tileWidth = Math.floor(64 / bytesPerBlock) * blockWidth
+		tileHeight = 8 * blockHeight * 2 ** swizzleMode
+		this.swizzleDataList = [
+			[2 ** swizzleMode, 0],
+			[2, 1],
+			[4, 0],
+			[2, 1],
+			[2, 0],
+		]
+		this.readSize = 16
+		this.columnCount = Math.floor((bytesPerBlock * imWidth) / (blockWidth * 16))
+		if (datasize % tileDatasize !== 0) {
+			throw new Error(
+				`Error: Invalid data size. In order to be swizzled, the data size must be a multiple of ${tileDatasize}, while the given datasize is ${datasize}.`,
+			)
+		}
+
+		if (imWidth % tileWidth !== 0) {
+			throw new Error(
+				`Error: for this texture encoding, image width should be a multiple of ${tileWidth}, but the given width is ${imWidth}`,
+			)
+		}
+
+		if (imHeight % tileHeight !== 0) {
+			throw new Error(
+				`Error: for this texture encoding, image height should be a multiple of ${tileHeight}, but the given height is ${imHeight}`,
+			)
+		}
+
+		this.tileCount = Math.floor(datasize / tileDatasize)
+		this.tilePerWidth = Math.floor(imWidth / tileWidth)
+		this.tilePerHeight = Math.floor(imHeight / tileHeight)
+		this.rowCount = Math.floor(imHeight / blockHeight)
+	}
+
+	_bytesToArray() {
+		let readDataIdx = 0
+		const array = []
+
+		for (let i = 0; i < this.rowCount; i++) {
+			const newRow = []
+			for (let j = 0; j < this.columnCount; j++) {
+				newRow.push(
+					this.data.subarray(readDataIdx, readDataIdx + this.readSize),
+				)
+				readDataIdx += this.readSize
+			}
+			array.push(newRow)
+		}
+
+		return array
+	}
+
+	_splitArrays(arrayList, sectionNumber, axis) {
+		const newArrayList = []
+
+		for (const array of arrayList) {
+			if (axis === 0) {
+				// Split rows (axis 0)
+				const chunkSize = Math.floor(array.length / sectionNumber)
+				for (let i = 0; i < sectionNumber; i++) {
+					newArrayList.push(array.slice(i * chunkSize, (i + 1) * chunkSize))
+				}
+			} else if (axis === 1) {
+				// Split columns (axis 1)
+				const chunkSize = Math.floor(array[0].length / sectionNumber)
+				for (let i = 0; i < sectionNumber; i++) {
+					const newArray = array.map((row) =>
+						row.slice(i * chunkSize, (i + 1) * chunkSize),
+					)
+					newArrayList.push(newArray)
+				}
+			}
+		}
+
+		return newArrayList
+	}
+
+	_swizzleTile(arrayList) {
+		for (const [sectionNumber, axis] of this.swizzleDataList) {
+			arrayList = this._splitArrays(arrayList, sectionNumber, axis)
+		}
+		return arrayList
+	}
+
+	swizzle() {
+		const swizzledData = new Uint8Array(this.data.length)
+		let offset = 0
+
+		const initialArrayList = [this._bytesToArray()]
+		const splitArrayList = this._splitArrays(
+			initialArrayList,
+			this.tilePerHeight,
+			0,
+		)
+		const finalArrayList = this._splitArrays(
+			splitArrayList,
+			this.tilePerWidth,
+			1,
+		)
+
+		for (const array of finalArrayList) {
+			const swizzledArrayList = this._swizzleTile([array])
+			for (const block of swizzledArrayList) {
+				// Extracting the final target chunk (mimics [0][0].item() from Python)
+				const chunk = block[0][0]
+				swizzledData.set(chunk, offset)
+				offset += chunk.length
+			}
+		}
+
+		if (offset !== this.data.length) {
+			throw new Error(
+				"An unknown error occurred while swizzling bytes: output data length is (somehow) different than input data length.",
+			)
+		}
+
+		return swizzledData
+	}
+}
+
+export { BytesDeswizzle, BytesSwizzle }
